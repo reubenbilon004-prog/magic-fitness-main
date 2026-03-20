@@ -31,7 +31,7 @@
             visibility: hidden;
         }
         .weight-emoji {
-            font-size: 7rem;
+            font-size: 6rem;
             display: inline-block;
             animation: weightLift 1.2s ease-in-out infinite;
             filter: drop-shadow(0 0 12px #ff073a);
@@ -46,18 +46,18 @@
             100% { transform: translateY(0px) scale(1); }
         }
         .loading-bar-container {
-            width: 240px;
-            height: 5px;
+            width: 220px;
+            height: 4px;
             background: rgba(255,255,255,0.2);
-            border-radius: 5px;
-            margin-top: 40px;
+            border-radius: 4px;
+            margin-top: 35px;
             overflow: hidden;
         }
         .loading-bar {
             width: 0%;
             height: 100%;
             background: #ff073a;
-            border-radius: 5px;
+            border-radius: 4px;
             animation: loadProgress 3s linear forwards;
         }
         @keyframes loadProgress {
@@ -65,13 +65,13 @@
             100% { width: 100%; }
         }
         .loading-text {
-            margin-top: 20px;
+            margin-top: 18px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 2px;
             color: #ff5e7e;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         * {
@@ -84,8 +84,9 @@
             font-family: 'Poppins', 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #f0f0f0;
-            line-height: 1.5;
+            line-height: 1.4;
             overflow-x: hidden;
+            font-size: 14px;
         }
 
         /* FULL PAGE BACKGROUND WITH LION LOGO */
@@ -147,9 +148,9 @@
 
         .container {
             width: 90%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
             position: relative;
             z-index: 2;
         }
@@ -167,40 +168,39 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
+            padding: 12px 0;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .logo-img {
-            height: 48px;
+            height: 42px;
             width: auto;
             filter: drop-shadow(0 0 6px rgba(255,7,58,0.4));
-            transition: transform 0.2s;
         }
 
         .logo-text {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             font-family: 'Bebas Neue', sans-serif;
             color: #ff073a;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 28px;
+            gap: 24px;
         }
         .nav-links li a {
             text-decoration: none;
             color: #f0f0f0;
-            font-weight: 600;
-            font-size: 16px;
+            font-weight: 500;
+            font-size: 14px;
             transition: 0.25s;
             position: relative;
         }
@@ -212,7 +212,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -6px;
+            bottom: -4px;
             left: 0;
             background: #ff073a;
             transition: width 0.25s ease;
@@ -222,7 +222,7 @@
         }
         .mobile-menu {
             display: none;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             color: white;
         }
@@ -236,103 +236,103 @@
             text-align: center;
         }
         .hero-content {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 40px 30px;
+            padding: 30px 25px;
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(4px);
-            border-radius: 40px;
+            border-radius: 32px;
             border: 1px solid rgba(255,7,58,0.4);
             animation: riseUp 1s ease;
         }
         @keyframes riseUp {
-            from { opacity: 0; transform: translateY(50px);}
+            from { opacity: 0; transform: translateY(40px);}
             to { opacity: 1; transform: translateY(0);}
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.2rem;
             background: linear-gradient(135deg, #fff, #ff5e7e);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .hero h2 {
-            font-size: 1.8rem;
-            margin: 20px 0 15px;
+            font-size: 1.5rem;
+            margin: 15px 0 10px;
             color: #fff;
         }
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
         }
         .btn {
             display: inline-block;
-            padding: 10px 28px;
+            padding: 8px 22px;
             background: #ff073a;
             color: white;
             text-decoration: none;
             border-radius: 40px;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 8px 10px;
+            letter-spacing: 0.5px;
+            margin: 6px 8px;
             transition: 0.3s;
-            box-shadow: 0 5px 18px rgba(255,7,58,0.4);
+            box-shadow: 0 4px 12px rgba(255,7,58,0.4);
             border: none;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         .btn-outline {
             background: transparent;
             border: 2px solid #ff073a;
         }
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255,7,58,0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,7,58,0.5);
             background: #e60032;
         }
 
         /* Prominent Hours Section */
         .hours-prominent {
             background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 40px;
-            padding: 20px 30px;
-            margin: -50px auto 50px;
-            max-width: 750px;
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            padding: 16px 25px;
+            margin: -45px auto 45px;
+            max-width: 700px;
             text-align: center;
             border: 1px solid rgba(255,7,58,0.5);
         }
         .hours-prominent h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
             color: #ff5e7e;
         }
         .hours-grid {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         .hours-slot {
             background: rgba(0,0,0,0.5);
-            padding: 8px 18px;
+            padding: 6px 14px;
             border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 500;
+            font-size: 0.85rem;
         }
 
         /* Sections */
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             display: inline-block;
             background: linear-gradient(120deg, #fff, #ff7b9c);
             -webkit-background-clip: text;
@@ -342,162 +342,162 @@
         }
         .section-title h2::after {
             content: '';
-            width: 70px;
+            width: 60px;
             height: 3px;
             background: #ff073a;
             position: absolute;
-            bottom: -12px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         /* About */
         .about-text p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             line-height: 1.5;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Franchise Cards */
         .franchise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
         .franchise-card {
             background: rgba(0,0,0,0.6);
             backdrop-filter: blur(8px);
-            border-radius: 24px;
-            padding: 25px;
+            border-radius: 20px;
+            padding: 20px;
             border-left: 4px solid #ff073a;
-            transition: 0.3s;
+            transition: 0.2s;
         }
         .franchise-card h4 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #ff5e7e;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .trainer-list {
-            margin-top: 20px;
+            margin-top: 18px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         .trainer-item {
             background: rgba(0,0,0,0.4);
-            padding: 10px;
-            border-radius: 20px;
+            padding: 8px 12px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         .trainer-name {
             font-weight: bold;
             color: #ff5e7e;
         }
         .trainer-phone {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             background: rgba(255,7,58,0.2);
-            padding: 4px 8px;
-            border-radius: 20px;
+            padding: 3px 8px;
+            border-radius: 16px;
         }
         .owner-note {
             margin-top: 20px;
             text-align: center;
             background: rgba(255,7,58,0.2);
-            padding: 10px;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            padding: 8px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.85rem;
         }
 
         /* Pricing */
         .pricing-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 25px;
             justify-content: center;
-            margin: 30px 0;
+            margin: 25px 0;
         }
         .pricing-card-big {
             flex: 1;
-            min-width: 280px;
+            min-width: 260px;
             background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 28px;
-            padding: 25px 20px;
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 20px 18px;
             border: 1px solid rgba(255,7,58,0.5);
         }
         .pricing-card-big h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             color: #ff073a;
         }
         .plan-row {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid rgba(255,255,255,0.15);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .plan-price {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 800;
             color: #ff5e7e;
         }
         .admission-badge {
             background: linear-gradient(135deg, #ff073a, #b0002c);
             text-align: center;
-            padding: 12px;
-            border-radius: 50px;
+            padding: 10px;
+            border-radius: 40px;
             font-weight: bold;
-            margin: 30px 0 20px;
-            font-size: 0.95rem;
+            margin: 25px 0 15px;
+            font-size: 0.9rem;
         }
         .personal-training-card {
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(10px);
-            border-radius: 28px;
-            padding: 25px;
+            border-radius: 24px;
+            padding: 20px;
             text-align: center;
-            max-width: 450px;
-            margin: 20px auto 0;
+            max-width: 420px;
+            margin: 15px auto 0;
             border: 2px solid #ff073a;
         }
         .personal-training-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
         }
         .personal-training-card .plan-price {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
 
         /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
         }
         .gallery-item {
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
-            height: 260px;
+            height: 220px;
             position: relative;
         }
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s;
+            transition: 0.4s;
         }
         .gallery-item:hover img {
             transform: scale(1.05);
@@ -508,31 +508,31 @@
             left: 0;
             width: 100%;
             background: linear-gradient(0deg, #ff073a, transparent);
-            padding: 10px;
+            padding: 8px;
             text-align: center;
             transform: translateY(100%);
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         /* Testimonials */
         .testimonial {
             background: rgba(0,0,0,0.65);
             backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 25px;
-            margin: 20px 0;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
             border-left: 4px solid #ff073a;
         }
         .client {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 12px;
         }
         .client img {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ff073a;
@@ -541,74 +541,74 @@
         /* Contact */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
         }
         .contact-info, .contact-form {
             background: rgba(0,0,0,0.55);
             backdrop-filter: blur(8px);
-            padding: 28px;
-            border-radius: 28px;
+            padding: 22px;
+            border-radius: 24px;
         }
         .contact-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
         .contact-icon {
-            font-size: 24px;
+            font-size: 20px;
             color: #ff073a;
         }
         .contact-form input, .contact-form textarea {
             width: 100%;
             background: rgba(25,25,25,0.9);
             border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 40px;
-            padding: 10px 18px;
+            border-radius: 30px;
+            padding: 8px 15px;
             color: white;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
         }
         footer {
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
-            padding: 40px 0 20px;
+            padding: 30px 0 18px;
             text-align: center;
             border-top: 1px solid rgba(255,7,58,0.4);
         }
         .social-links a {
             display: inline-flex;
             background: rgba(255,255,255,0.1);
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             align-items: center;
             justify-content: center;
-            margin: 0 8px;
+            margin: 0 6px;
             color: white;
-            font-size: 18px;
-            transition: 0.3s;
+            font-size: 16px;
+            transition: 0.2s;
             text-decoration: none;
         }
         .whatsapp-btn {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             background: #25D366;
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 28px;
             color: white;
             z-index: 999;
         }
         .fade-in {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         .fade-in.appear {
             opacity: 1;
@@ -618,24 +618,24 @@
             .mobile-menu { display: block; }
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 65px;
                 left: 0;
                 width: 100%;
                 background: rgba(0,0,0,0.85);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
+                padding: 18px 0;
                 transform: translateY(-150%);
                 transition: transform 0.4s;
-                gap: 20px;
+                gap: 16px;
                 border-bottom: 2px solid #ff073a;
                 z-index: 999;
             }
             .nav-links.active { transform: translateY(0); }
-            .hero h1 { font-size: 3rem; }
-            .hero h2 { font-size: 1.5rem; }
-            .section-title h2 { font-size: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .section-title h2 { font-size: 1.8rem; }
         }
         .text-center { text-align: center; }
     </style>
@@ -705,18 +705,18 @@
 <section id="about">
     <div class="container">
         <div class="section-title"><h2>About Magic Fitness</h2></div>
-        <div class="about-content" style="display: flex; gap: 40px; flex-wrap: wrap;">
-            <div class="about-text" style="flex:1; background: rgba(0,0,0,0.55); padding: 25px; border-radius: 28px;">
+        <div class="about-content" style="display: flex; gap: 35px; flex-wrap: wrap;">
+            <div class="about-text" style="flex:1; background: rgba(0,0,0,0.55); padding: 22px; border-radius: 24px;">
                 <h3>Your Fitness Journey Starts Here</h3>
                 <p>With three state-of-the-art gyms across Thrissur, Magic Fitness is dedicated to making fitness accessible, effective, and inspiring. From weight training to cardio and expert personal training, we have everything you need.</p>
                 <p>Our mission: build a healthier community through discipline, motivation, and expert guidance.</p>
-                <div style="margin-top: 20px; background: rgba(0,0,0,0.6); border-radius: 24px; padding: 18px;">
+                <div style="margin-top: 18px; background: rgba(0,0,0,0.6); border-radius: 20px; padding: 15px;">
                     <h4>🏋️‍♂️ Management</h4>
                     <p><strong>Manager:</strong> Available at gym / Contact front desk</p>
                     <p><strong>Owner:</strong> George</p>
                 </div>
             </div>
-            <div style="flex:1; border-radius: 24px; overflow: hidden;">
+            <div style="flex:1; border-radius: 20px; overflow: hidden;">
                 <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:100%; object-fit:cover;" alt="Gym">
             </div>
         </div>
@@ -762,7 +762,7 @@
                 </div>
             </div>
         </div>
-        <div class="text-center" style="margin: 25px 0 20px;">
+        <div class="text-center" style="margin: 22px 0 18px;">
             <a href="#gallery" class="btn btn-outline" style="background: rgba(0,0,0,0.6);">📸 View Gym Gallery</a>
         </div>
         <div class="owner-note fade-in">
@@ -775,10 +775,10 @@
 <section id="pricing">
     <div class="container">
         <div class="section-title"><h2>Training Plans</h2></div>
-        <div class="admission-badge">⭐ One‑time Admission Fee: ₹500</div>
+        <div class="admission-badge">⭐ One‑time Admission Fee: ₹1000 + ₹500 = ₹1500 (includes orientation & access card)</div>
         <div class="pricing-container">
             <div class="pricing-card-big fade-in">
-                <h3>💪 WEIGHT TRAINING</h3>
+                <h3>💪 WEIGHT TRAINING ONLY<br><span style="font-size:0.8rem;">(No Cardio)</span></h3>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,000</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹2,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹5,000</span></div>
@@ -795,7 +795,7 @@
         <div class="personal-training-card fade-in">
             <h3>🎯 Personal Training</h3>
             <p>One‑on‑one coaching with our experts</p>
-            <div class="plan-price">₹5,000 <span style="font-size:1rem;">/ month add‑on</span></div>
+            <div class="plan-price">₹5,000 <span style="font-size:0.9rem;">/ month add‑on</span></div>
             <p>Customized plans, progress tracking, diet guidance</p>
         </div>
     </div>
@@ -805,11 +805,11 @@
 <section id="gallery">
     <div class="container">
         <div class="section-title"><h2>Gallery</h2></div>
-        <div class="gallery-filter" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 35px; flex-wrap: wrap;">
-            <button class="filter-btn active" data-gym="all" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 6px 20px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">All Gyms</button>
-            <button class="filter-btn" data-gym="mannuthy" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 6px 20px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Mannuthy</button>
-            <button class="filter-btn" data-gym="pattikkad" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 6px 20px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Pattikkad</button>
-            <button class="filter-btn" data-gym="poochatty" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 6px 20px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Poochatty</button>
+        <div class="gallery-filter" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
+            <button class="filter-btn active" data-gym="all" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">All Gyms</button>
+            <button class="filter-btn" data-gym="mannuthy" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Mannuthy</button>
+            <button class="filter-btn" data-gym="pattikkad" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Pattikkad</button>
+            <button class="filter-btn" data-gym="poochatty" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Poochatty</button>
         </div>
         <div class="gallery-grid" id="galleryGrid"></div>
     </div>
@@ -836,7 +836,7 @@
                 <h3>Get in Touch</h3>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div>+91 80789 36890</div></div>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
-                <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 24px;">
+                <div style="margin-top: 18px; background: rgba(0,0,0,0.5); padding: 12px; border-radius: 20px;">
                     <p><strong>Manager:</strong> Enquire at front desk</p>
                     <p><strong>Owner:</strong> George</p>
                 </div>
@@ -846,7 +846,7 @@
                     <input type="text" placeholder="Full Name" required>
                     <input type="email" placeholder="Email Address" required>
                     <input type="tel" placeholder="Mobile Number" required>
-                    <textarea rows="4" placeholder="Your fitness goal or message..."></textarea>
+                    <textarea rows="3" placeholder="Your fitness goal or message..."></textarea>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
@@ -907,14 +907,12 @@
         `).join('');
     }
 
-    // Filter buttons
     const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            const gym = btn.getAttribute('data-gym');
-            renderGallery(gym);
+            renderGallery(btn.getAttribute('data-gym'));
         });
     });
     renderGallery('all');
