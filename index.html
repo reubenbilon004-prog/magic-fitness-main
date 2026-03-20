@@ -9,6 +9,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ========== PRELOADER STYLES ========== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 10%, #0a0a0a, #030303);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            opacity: 1;
+            visibility: visible;
+        }
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .weight-emoji {
+            font-size: 7rem;
+            display: inline-block;
+            animation: weightLift 1.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 12px #ff073a);
+            transform-origin: center bottom;
+        }
+        /* Realistic weightlifting motion */
+        @keyframes weightLift {
+            0% {
+                transform: translateY(0px) scale(1);
+            }
+            20% {
+                transform: translateY(15px) scale(0.98); /* squat */
+            }
+            50% {
+                transform: translateY(-45px) scale(1.08); /* press up */
+            }
+            70% {
+                transform: translateY(-45px) scale(1.08); /* hold at top */
+            }
+            90% {
+                transform: translateY(0px) scale(1); /* lower */
+            }
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+        }
+        .loading-bar-container {
+            width: 240px;
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            margin-top: 40px;
+            overflow: hidden;
+        }
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background: #ff073a;
+            border-radius: 5px;
+            animation: loadProgress 3s linear forwards;
+        }
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        .loading-text {
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: #ff5e7e;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -301,135 +379,21 @@
             border-radius: 5px;
         }
 
-        /* Trainer Grid */
-        .trainer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 35px;
-            margin-top: 20px;
+        /* About text larger font */
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
-        .trainer-card {
-            background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(8px);
-            border-radius: 28px;
-            padding: 30px 20px;
-            text-align: center;
-            border: 1px solid rgba(255,7,58,0.3);
-            transition: 0.3s;
-        }
-        .trainer-card:hover {
-            transform: translateY(-8px);
-            border-color: #ff073a;
-        }
-        .trainer-photo {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background: #1e1e1e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 3px solid #ff073a;
-        }
-        .trainer-photo i {
-            font-size: 4rem;
-            color: #ff073a;
-        }
-        .trainer-card h3 {
-            font-size: 1.5rem;
-            color: #ff5e7e;
-            margin-bottom: 8px;
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
-        /* PRICING */
-        .pricing-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin: 40px 0;
-        }
-        .pricing-card-big {
-            flex: 1;
-            min-width: 320px;
-            background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            padding: 30px 25px;
-            border: 1px solid rgba(255,7,58,0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        }
-        .pricing-card-big:hover {
-            transform: translateY(-8px);
-            border-color: #ff073a;
-            box-shadow: 0 25px 40px rgba(255,7,58,0.2);
-        }
-        .pricing-card-big h3 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ff073a;
-            border-bottom: 2px solid rgba(255,7,58,0.4);
-            display: inline-block;
-            width: 100%;
-        }
-        .plan-detail {
-            margin: 20px 0;
-        }
-        .plan-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            font-size: 1.1rem;
-        }
-        .plan-period {
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        .plan-price {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #ff5e7e;
-        }
-        .admission-badge {
-            background: linear-gradient(135deg, #ff073a, #b0002c);
-            text-align: center;
-            padding: 14px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin: 30px 0 20px;
-        }
-        .personal-training-card {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 35px;
-            text-align: center;
-            max-width: 500px;
-            margin: 30px auto 0;
-            border: 2px solid #ff073a;
-        }
-        .personal-training-card h3 {
-            font-size: 2rem;
-            color: #ff073a;
-            margin-bottom: 15px;
-        }
-        .personal-price {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 15px 0;
-        }
-
-        /* Franchise Locations */
+        /* Franchise Cards with Trainers */
         .franchise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 35px;
             margin-top: 30px;
         }
@@ -450,6 +414,31 @@
             color: #ff5e7e;
             margin-bottom: 15px;
         }
+        .trainer-list {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .trainer-item {
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .trainer-name {
+            font-weight: bold;
+            color: #ff5e7e;
+        }
+        .trainer-phone {
+            font-size: 0.85rem;
+            background: rgba(255,7,58,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
         .owner-note {
             margin-top: 20px;
             text-align: center;
@@ -459,17 +448,76 @@
             font-weight: bold;
         }
 
-        /* Gallery - Expanded */
+        /* Pricing */
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .pricing-card-big {
+            flex: 1;
+            min-width: 320px;
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            padding: 30px 25px;
+            border: 1px solid rgba(255,7,58,0.5);
+            transition: transform 0.3s;
+        }
+        .pricing-card-big:hover {
+            transform: translateY(-8px);
+            border-color: #ff073a;
+        }
+        .pricing-card-big h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ff073a;
+        }
+        .plan-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+        .plan-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ff5e7e;
+        }
+        .admission-badge {
+            background: linear-gradient(135deg, #ff073a, #b0002c);
+            text-align: center;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 30px 0 20px;
+        }
+        .personal-training-card {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 32px;
+            padding: 35px;
+            text-align: center;
+            max-width: 500px;
+            margin: 30px auto 0;
+            border: 2px solid #ff073a;
+        }
+
+        /* Gallery - larger images */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
         .gallery-item {
             border-radius: 24px;
             overflow: hidden;
-            height: 280px;
+            height: 300px;
             position: relative;
+            display: block;
         }
         .gallery-item img {
             width: 100%;
@@ -571,6 +619,7 @@
             color: white;
             font-size: 20px;
             transition: 0.3s;
+            text-decoration: none;
         }
         .social-links a:hover {
             background: #ff073a;
@@ -627,13 +676,23 @@
             .hero h1 { font-size: 2.5rem; }
             .hero h2 { font-size: 1.3rem; }
             .pricing-card-big { min-width: 280px; }
-            .hours-grid { flex-direction: column; align-items: center; gap: 15px; }
+            .hours-grid { flex-direction: column; gap: 15px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item { height: 260px; }
         }
         .text-center { text-align: center; }
-        .mt-4 { margin-top: 20px; }
     </style>
 </head>
 <body>
+    <!-- PRELOADER - EXACTLY 3 SECONDS WITH REALISTIC LIFTING EMOJI -->
+    <div class="preloader" id="preloader">
+        <div class="weight-emoji">🏋️‍♂️</div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-text">PUSHING LIMITS...</div>
+    </div>
+
 <div class="bg-glow"></div>
 
 <header>
@@ -646,10 +705,10 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#trainers">Trainers</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#franchises">Franchises</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu"><i class="fas fa-bars"></i></div>
@@ -667,12 +726,13 @@
             <div>
                 <a href="#pricing" class="btn">View Plans</a>
                 <a href="#contact" class="btn btn-outline">Free Trial</a>
+                <a href="#franchises" class="btn btn-outline">View All Three Gyms</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Prominent Opening Hours Section -->
+<!-- Prominent Hours -->
 <div class="container">
     <div class="hours-prominent fade-in">
         <h3><i class="fas fa-clock"></i> Opening Hours (All Gyms)</h3>
@@ -693,7 +753,7 @@
                 <h3>Your Fitness Journey Starts Here</h3>
                 <p>With three state-of-the-art gyms across Thrissur, Magic Fitness is dedicated to making fitness accessible, effective, and inspiring. From weight training to cardio and expert personal training, we have everything you need.</p>
                 <p>Our mission: build a healthier community through discipline, motivation, and expert guidance.</p>
-                <div class="manager-card fade-in" style="margin-top: 25px; background: rgba(0,0,0,0.6); border-radius: 28px; padding: 20px;">
+                <div style="margin-top: 25px; background: rgba(0,0,0,0.6); border-radius: 28px; padding: 20px;">
                     <h4>🏋️‍♂️ Management</h4>
                     <p><strong>Manager:</strong> Available at gym / Contact front desk</p>
                     <p><strong>Owner:</strong> George</p>
@@ -706,99 +766,107 @@
     </div>
 </section>
 
-<!-- Trainers -->
-<section id="trainers">
-    <div class="container">
-        <div class="section-title"><h2>Elite Trainers</h2></div>
-        <div class="trainer-grid">
-            <div class="trainer-card fade-in"><div class="trainer-photo"><i class="fas fa-user-circle"></i></div><h3>Athul Ramachandran</h3><p>Fitness Expert • 5 Years Experience</p><p>Strength & conditioning specialist</p></div>
-            <div class="trainer-card fade-in"><div class="trainer-photo"><i class="fas fa-user-circle"></i></div><h3>Meera Nair</h3><p>Strength Coach • 4 Years</p><p>Women’s fitness, functional training</p></div>
-            <div class="trainer-card fade-in"><div class="trainer-photo"><i class="fas fa-user-circle"></i></div><h3>Arjun S</h3><p>Functional Trainer • 6 Years</p><p>HIIT, mobility & athletic performance</p></div>
-            <div class="trainer-card fade-in"><div class="trainer-photo"><i class="fas fa-user-circle"></i></div><h3>Rahul P</h3><p>Nutrition & Conditioning • 5 Years</p><p>Body recomposition, diet planning</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- Pricing Section -->
-<section id="pricing">
-    <div class="container">
-        <div class="section-title"><h2>Training Plans</h2></div>
-        <div class="admission-badge">⭐ One‑time Admission Fee: ₹500</div>
-
-        <div class="pricing-container">
-            <div class="pricing-card-big fade-in">
-                <h3>💪 WEIGHT TRAINING</h3>
-                <div class="plan-detail">
-                    <div class="plan-row"><span class="plan-period">Monthly</span><span class="plan-price">₹1,000</span></div>
-                    <div class="plan-row"><span class="plan-period">3 Months</span><span class="plan-price">₹2,500</span></div>
-                    <div class="plan-row"><span class="plan-period">6 Months</span><span class="plan-price">₹5,000</span></div>
-                    <div class="plan-row"><span class="plan-period">12 Months</span><span class="plan-price">₹8,000</span></div>
-                </div>
-            </div>
-            <div class="pricing-card-big fade-in">
-                <h3>🔥 WT + CARDIO</h3>
-                <div class="plan-detail">
-                    <div class="plan-row"><span class="plan-period">Monthly</span><span class="plan-price">₹1,500</span></div>
-                    <div class="plan-row"><span class="plan-period">3 Months</span><span class="plan-price">₹3,500</span></div>
-                    <div class="plan-row"><span class="plan-period">6 Months</span><span class="plan-price">₹6,500</span></div>
-                    <div class="plan-row"><span class="plan-period">12 Months</span><span class="plan-price">₹11,000</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="personal-training-card fade-in">
-            <h3>🎯 Personal Training</h3>
-            <p>One‑on‑one coaching with our experts</p>
-            <div class="personal-price">₹5,000 <span>/ month add‑on</span></div>
-            <p>Customized plans, progress tracking, diet guidance</p>
-        </div>
-    </div>
-</section>
-
-<!-- Franchises Section -->
+<!-- Franchises Section (with trainers per gym) -->
 <section id="franchises">
     <div class="container">
         <div class="section-title"><h2>Our Franchises</h2></div>
         <div class="franchise-grid">
+            <!-- Mannuthy -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Mannuthy (Main Hub)</h4>
                 <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Sree Lakshmi Nagar, Mannuthy, Thrissur - 680651</p>
-                <p>⭐ Highly-rated, gender-neutral gym specializing in cardio, strength training, and CrossFit. Strong community focus with personal trainers. Open Monday–Saturday (morning and evening slots).</p>
-                <p><em>“The heart of Magic Fitness — where transformation meets discipline.”</em></p>
+                <p>⭐ Highly-rated, gender-neutral gym specializing in cardio, strength training, and CrossFit.</p>
+                <div class="trainer-list">
+                    <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
+                </div>
             </div>
+            <!-- Pattikkad -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Pattikkad</h4>
                 <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
-                <p>Fully equipped with modern machines, dedicated cardio zone, and expert coaches. Perfect for beginners and advanced athletes alike.</p>
+                <p>Fully equipped with modern machines, dedicated cardio zone, and expert coaches.</p>
+                <div class="trainer-list">
+                    <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
+                </div>
             </div>
+            <!-- Poochatty -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Poochatty</h4>
                 <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
-                <p>Our newest location featuring state-of-the-art equipment, CrossFit rig, and women‑only morning hours. A vibrant fitness hub for the local community.</p>
+                <p>Our newest location with state-of-the-art equipment, CrossFit rig, and women‑only morning hours.</p>
+                <div class="trainer-list">
+                    <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
+                </div>
             </div>
         </div>
+
+        <!-- VIEW GYM GALLERY BUTTON -->
+        <div class="text-center" style="margin: 30px 0 20px;">
+            <a href="#gallery" class="btn btn-outline" style="background: rgba(0,0,0,0.6);">📸 View Gym Gallery</a>
+        </div>
+
         <div class="owner-note fade-in">
             <i class="fas fa-crown"></i> Owned by <strong>George</strong> | All franchises operate under the Magic Fitness Group philosophy.
         </div>
     </div>
 </section>
 
-<!-- Gallery - Expanded with more images -->
-<section id="gallery">
+<!-- Pricing -->
+<section id="pricing">
     <div class="container">
-        <div class="section-title"><h2>Gallery</h2></div>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gym"><div class="gallery-caption">Modern Equipment</div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Weights"><div class="gallery-caption">Strength Zone</div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Training"><div class="gallery-caption">Personal Training</div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Group"><div class="gallery-caption">Group Classes</div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cardio"><div class="gallery-caption">Cardio Area</div></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Functional"><div class="gallery-caption">Functional Training</div></div>
+        <div class="section-title"><h2>Training Plans</h2></div>
+        <div class="admission-badge">⭐ One‑time Admission Fee: ₹500</div>
+        <div class="pricing-container">
+            <div class="pricing-card-big fade-in">
+                <h3>💪 WEIGHT TRAINING</h3>
+                <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,000</span></div>
+                <div class="plan-row"><span>3 Months</span><span class="plan-price">₹2,500</span></div>
+                <div class="plan-row"><span>6 Months</span><span class="plan-price">₹5,000</span></div>
+                <div class="plan-row"><span>12 Months</span><span class="plan-price">₹8,000</span></div>
+            </div>
+            <div class="pricing-card-big fade-in">
+                <h3>🔥 WT + CARDIO</h3>
+                <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,500</span></div>
+                <div class="plan-row"><span>3 Months</span><span class="plan-price">₹3,500</span></div>
+                <div class="plan-row"><span>6 Months</span><span class="plan-price">₹6,500</span></div>
+                <div class="plan-row"><span>12 Months</span><span class="plan-price">₹11,000</span></div>
+            </div>
+        </div>
+        <div class="personal-training-card fade-in">
+            <h3>🎯 Personal Training</h3>
+            <p>One‑on‑one coaching with our experts</p>
+            <div class="plan-price" style="font-size:2rem;">₹5,000 <span style="font-size:1rem;">/ month add‑on</span></div>
+            <p>Customized plans, progress tracking, diet guidance</p>
         </div>
     </div>
 </section>
 
-<!-- Testimonials (renamed) -->
+<!-- Gallery with Gym Filter -->
+<section id="gallery">
+    <div class="container">
+        <div class="section-title"><h2>Gallery</h2></div>
+        <div class="gallery-filter" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap;">
+            <button class="filter-btn active" data-gym="all" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 8px 24px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">All Gyms</button>
+            <button class="filter-btn" data-gym="mannuthy" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 8px 24px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Mannuthy</button>
+            <button class="filter-btn" data-gym="pattikkad" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 8px 24px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Pattikkad</button>
+            <button class="filter-btn" data-gym="poochatty" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 8px 24px; border-radius: 40px; color: white; font-weight: 600; cursor: pointer;">Poochatty</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamic gallery images -->
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
 <section id="testimonials">
     <div class="container">
         <div class="section-title"><h2>Testimonials</h2></div>
@@ -810,7 +878,7 @@
     </div>
 </section>
 
-<!-- Contact + Hours (hours also here for reference but prominent block above is main) -->
+<!-- Contact -->
 <section id="contact">
     <div class="container">
         <div class="section-title"><h2>Contact & Visit</h2></div>
@@ -819,7 +887,7 @@
                 <h3>Get in Touch</h3>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div>+91 80789 36890</div></div>
                 <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
-                <div class="manager-card" style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 28px;">
+                <div style="margin-top: 20px; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 28px;">
                     <p><strong>Manager:</strong> Enquire at front desk</p>
                     <p><strong>Owner:</strong> George</p>
                 </div>
@@ -830,7 +898,7 @@
                     <input type="email" placeholder="Email Address" required>
                     <input type="tel" placeholder="Mobile Number" required>
                     <textarea rows="4" placeholder="Your fitness goal or message..."></textarea>
-                    <button type="submit" class="btn">Send Message ✨</button>
+                    <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -840,8 +908,8 @@
 <footer>
     <div class="container">
         <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://instagram.com/magic_fitness_group" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/magic_fitness_group" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         <div class="copyright"><p>© 2025 Magic Fitness Group — 3 Locations in Thrissur | Owned by George</p></div>
@@ -851,6 +919,60 @@
 <a href="https://wa.me/918078936890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
+    // Gallery images per gym
+    const galleryData = {
+        all: [
+            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        ],
+        mannuthy: [
+            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        ],
+        pattikkad: [
+            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        ],
+        poochatty: [
+            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        ]
+    };
+
+    function renderGallery(gymKey) {
+        const grid = document.getElementById('galleryGrid');
+        const images = galleryData[gymKey] || galleryData.all;
+        grid.innerHTML = images.map(src => `
+            <div class="gallery-item">
+                <img src="${src}" alt="Gym Image">
+                <div class="gallery-caption">Magic Fitness</div>
+            </div>
+        `).join('');
+    }
+
+    // Set up filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const gym = btn.getAttribute('data-gym');
+            renderGallery(gym);
+        });
+    });
+
+    // Initial render
+    renderGallery('all');
+
+    // Mobile menu, smooth scroll, fade-in, form submit
     const mobileBtn = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     mobileBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
@@ -877,8 +999,21 @@
 
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert("Thanks for reaching out! We'll contact you soon. 💪");
+        alert("Thanks for reaching out! We'll contact you soon.");
         e.target.reset();
+    });
+
+    // PRELOADER: exactly 3 seconds, then fade out
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('hide');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800);
+            }
+        }, 3000);
     });
 </script>
 </body>
