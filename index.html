@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="google-site-verification" content="TJBs1YmMa6CylGQujcKopZXYWBckibxvuv4bKHo5RJ8" />
     <title>Magic Fitness | Premium Gyms in Thrissur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -177,13 +178,16 @@
             gap: 10px;
         }
 
+        /* FIX: Remove any visible rectangle around the logo image */
         .logo-img {
             height: 42px;
             width: auto;
             filter: drop-shadow(0 0 6px rgba(255,7,58,0.4));
-            background: transparent;
-            border: none;
-            outline: none;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -765,7 +769,7 @@
     </div>
 </section>
 
-<!-- Franchises with updated trainer counts -->
+<!-- Franchises -->
 <section id="franchises">
     <div class="container">
         <div class="section-title"><h2>Our Franchises</h2></div>
@@ -811,7 +815,7 @@
     </div>
 </section>
 
-<!-- Pricing with simplified structure -->
+<!-- Pricing -->
 <section id="pricing">
     <div class="container">
         <div class="section-title"><h2>Training Plans</h2></div>
@@ -907,7 +911,7 @@
 <a href="https://wa.me/918078936890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-    // Gallery data (unchanged)
+    // Gallery data
     const galleryData = {
         all: [
             "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
