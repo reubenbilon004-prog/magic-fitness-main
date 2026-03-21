@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>Magic Fitness | Premium Gyms in Thrissur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,7 @@
             font-size: 14px;
         }
 
-        /* FULL PAGE BACKGROUND WITH LION LOGO */
+        /* FULL PAGE BACKGROUND WITH LION LOGO - PERFECT COVER ON ALL DEVICES */
         body::before {
             content: "";
             position: fixed;
@@ -155,7 +155,7 @@
             z-index: 2;
         }
 
-        /* HEADER */
+        /* HEADER - logo has no rectangle boundary */
         header {
             position: fixed;
             width: 100%;
@@ -181,6 +181,9 @@
             height: 42px;
             width: auto;
             filter: drop-shadow(0 0 6px rgba(255,7,58,0.4));
+            background: transparent;
+            border: none;
+            outline: none;
         }
 
         .logo-text {
@@ -590,6 +593,10 @@
             transition: 0.2s;
             text-decoration: none;
         }
+        .social-links a:hover {
+            background: #ff073a;
+            transform: translateY(-3px);
+        }
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -614,6 +621,15 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .container { width: 92%; }
+            .hero h1 { font-size: 3rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .hours-prominent { max-width: 90%; margin: -35px auto 40px; }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu { display: block; }
             .nav-links {
@@ -634,10 +650,36 @@
             }
             .nav-links.active { transform: translateY(0); }
             .hero h1 { font-size: 2.5rem; }
-            .hero h2 { font-size: 1.3rem; }
+            .hero h2 { font-size: 1.2rem; }
+            .hero p { font-size: 0.9rem; }
+            .btn { padding: 7px 18px; font-size: 0.8rem; margin: 5px 6px; }
+            .hero-content { padding: 25px 20px; margin: 0 15px; }
+            .hours-prominent { padding: 12px 20px; margin: -30px auto 35px; }
+            .hours-prominent h3 { font-size: 1.2rem; }
+            .hours-slot { font-size: 0.75rem; padding: 5px 10px; }
             .section-title h2 { font-size: 1.8rem; }
+            .franchise-card h4 { font-size: 1.3rem; }
+            .pricing-card-big h3 { font-size: 1.3rem; }
+            .gallery-item { height: 200px; }
         }
-        .text-center { text-align: center; }
+
+        @media (max-width: 480px) {
+            .container { width: 94%; padding: 0 12px; }
+            .logo-text { font-size: 20px; }
+            .logo-img { height: 35px; }
+            .hero h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1rem; }
+            .btn { padding: 6px 14px; font-size: 0.7rem; margin: 4px 5px; }
+            .hero-content { padding: 20px 15px; }
+            .hours-grid { gap: 10px; }
+            .hours-slot { font-size: 0.7rem; padding: 4px 8px; }
+            .section-title h2 { font-size: 1.6rem; }
+            .franchise-card { padding: 16px; }
+            .trainer-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .pricing-card-big { min-width: 100%; }
+            .gallery-item { height: 180px; }
+            .whatsapp-btn { width: 45px; height: 45px; font-size: 24px; bottom: 15px; right: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -723,11 +765,12 @@
     </div>
 </section>
 
-<!-- Franchises -->
+<!-- Franchises with updated trainer counts -->
 <section id="franchises">
     <div class="container">
         <div class="section-title"><h2>Our Franchises</h2></div>
         <div class="franchise-grid">
+            <!-- Mannuthy: 2 trainers -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Mannuthy (Main Hub)</h4>
                 <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Sree Lakshmi Nagar, Mannuthy, Thrissur - 680651</p>
@@ -735,30 +778,27 @@
                 <div class="trainer-list">
                     <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
                     <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
                 </div>
             </div>
+            <!-- Pattikkad: 2 trainers -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Pattikkad</h4>
                 <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
                 <p>Fully equipped with modern machines, dedicated cardio zone, and expert coaches.</p>
                 <div class="trainer-list">
-                    <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
                     <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
                     <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
                 </div>
             </div>
+            <!-- Poochatty: 3 trainers -->
             <div class="franchise-card fade-in">
                 <h4>🏢 Poochatty</h4>
                 <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
                 <p>Our newest location with state-of-the-art equipment, CrossFit rig, and women‑only morning hours.</p>
                 <div class="trainer-list">
-                    <div class="trainer-item"><span class="trainer-name">Athul Ramachandran</span><span class="trainer-phone">📞 +91 98765 43201</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Meera Nair</span><span class="trainer-phone">📞 +91 98765 43202</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Arjun S</span><span class="trainer-phone">📞 +91 98765 43203</span></div>
-                    <div class="trainer-item"><span class="trainer-name">Rahul P</span><span class="trainer-phone">📞 +91 98765 43204</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Sreejith K</span><span class="trainer-phone">📞 +91 98765 43205</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Anjali R</span><span class="trainer-phone">📞 +91 98765 43206</span></div>
+                    <div class="trainer-item"><span class="trainer-name">Vishnu N</span><span class="trainer-phone">📞 +91 98765 43207</span></div>
                 </div>
             </div>
         </div>
@@ -771,14 +811,14 @@
     </div>
 </section>
 
-<!-- Pricing -->
+<!-- Pricing with simplified structure -->
 <section id="pricing">
     <div class="container">
         <div class="section-title"><h2>Training Plans</h2></div>
-        <div class="admission-badge">⭐ One‑time Admission Fee: ₹1000 + ₹500 = ₹1500 (includes orientation & access card)</div>
+        <div class="admission-badge">⭐ Admission Fee: ₹500</div>
         <div class="pricing-container">
             <div class="pricing-card-big fade-in">
-                <h3>💪 WEIGHT TRAINING ONLY<br><span style="font-size:0.8rem;">(No Cardio)</span></h3>
+                <h3>💪 WEIGHT TRAINING</h3>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,000</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹2,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹5,000</span></div>
@@ -795,7 +835,7 @@
         <div class="personal-training-card fade-in">
             <h3>🎯 Personal Training</h3>
             <p>One‑on‑one coaching with our experts</p>
-            <div class="plan-price">₹5,000 <span style="font-size:0.9rem;">/ month add‑on</span></div>
+            <div class="plan-price">₹5,000 <span style="font-size:0.9rem;">/ month</span></div>
             <p>Customized plans, progress tracking, diet guidance</p>
         </div>
     </div>
@@ -857,9 +897,8 @@
 <footer>
     <div class="container">
         <div class="social-links">
-            <a href="https://instagram.com/magic_fitness_group" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com/magic_fitness_group" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/magicfitnessgroup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com/magic_fitness_group" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="copyright"><p>© 2025 Magic Fitness Group — 3 Locations in Thrissur | Owned by George</p></div>
     </div>
@@ -868,7 +907,7 @@
 <a href="https://wa.me/918078936890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-    // Gallery data
+    // Gallery data (unchanged)
     const galleryData = {
         all: [
             "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -917,12 +956,13 @@
     });
     renderGallery('all');
 
-    // Mobile menu, smooth scroll, fade-in, form submit
+    // Mobile menu
     const mobileBtn = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     mobileBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
     document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
 
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e){
             e.preventDefault();
@@ -931,6 +971,7 @@
         });
     });
 
+    // Fade-in
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -942,6 +983,7 @@
     }, { threshold: 0.2 });
     faders.forEach(el => observer.observe(el));
 
+    // Form submit
     document.getElementById('contactForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
         alert("Thanks for reaching out! We'll contact you soon.");
