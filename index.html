@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <meta name="google-site-verification" content="TJBs1YmMa6CylGQujcKopZXYWBckibxvuv4bKHo5RJ8" />
-    <title>Magic Fitness Thrissur | Best Gym in Thrissur</title>
+    <title>Magic Fitness | Premium Gym Thrissur</title>
     <meta name="description" content="Magic Fitness Thrissur - Premium gym with cardio, strength training & CrossFit. Join the best gym in Thrissur today.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,12 +21,12 @@
             font-family: 'Poppins', 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #f0f0f0;
-            line-height: 1.4;
+            line-height: 1.5;
             overflow-x: hidden;
             font-size: 14px;
         }
 
-        /* ========== MODERN LIQUID PRELOADER ========== */
+        /* PRELOADER (simplified, 1.5s) */
         .preloader {
             position: fixed;
             top: 0;
@@ -41,93 +41,24 @@
             transition: opacity 0.5s ease, visibility 0.5s ease;
             opacity: 1;
             visibility: visible;
-            overflow: hidden;
         }
         .preloader.hide {
             opacity: 0;
             visibility: hidden;
         }
-        .liquid-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .liquid-blob {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, #ff073a, #ff5e7e, #ff073a);
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morph 2s infinite ease-in-out, pulse 1.5s infinite alternate;
-            filter: blur(2px);
-            box-shadow: 0 0 30px rgba(255,7,58,0.8);
-        }
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(5deg); }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.8; }
-            100% { transform: scale(1.1); opacity: 1; }
-        }
-        .ring {
-            position: absolute;
-            width: 190px;
-            height: 190px;
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,7,58,0.3);
+            border-top-color: #ff073a;
             border-radius: 50%;
-            border: 2px solid rgba(255,7,58,0.3);
-            border-top: 2px solid #ff073a;
-            animation: spin 1.5s linear infinite;
+            animation: spin 0.8s linear infinite;
         }
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .liquid-text {
-            position: absolute;
-            font-size: 1.8rem;
-            font-weight: 800;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 4px;
-            background: linear-gradient(90deg, #ff073a, #fff, #ff073a);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: shine 2s linear infinite, float 1.2s ease-in-out infinite;
-            text-shadow: 0 0 10px rgba(255,7,58,0.5);
-        }
-        @keyframes shine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-        .loading-status {
-            position: absolute;
-            bottom: -60px;
-            font-family: 'Poppins', monospace;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: #ff5e7e;
-            text-transform: uppercase;
-            font-weight: 500;
-            white-space: nowrap;
-            animation: flicker 1.5s infinite;
-        }
-        @keyframes flicker {
-            0% { opacity: 0.6; text-shadow: 0 0 2px #ff073a; }
-            100% { opacity: 1; text-shadow: 0 0 8px #ff073a; }
+            to { transform: rotate(360deg); }
         }
 
-        /* FULL PAGE BACKGROUND WITH LION LOGO */
+        /* BACKGROUND (logo remains) */
         body::before {
             content: "";
             position: fixed;
@@ -141,12 +72,10 @@
             pointer-events: none;
             animation: slowZoom 20s infinite alternate ease-in-out;
         }
-
         @keyframes slowZoom {
             0% { transform: scale(1); }
             100% { transform: scale(1.08); }
         }
-
         body::after {
             content: "";
             position: fixed;
@@ -158,7 +87,6 @@
             z-index: -1;
             pointer-events: none;
         }
-
         .bg-glow {
             position: fixed;
             top: 0;
@@ -170,211 +98,25 @@
             z-index: -1;
             animation: slowBreathing 8s infinite ease-in-out;
         }
-
         @keyframes slowBreathing {
             0% { opacity: 0.4; transform: scale(1);}
             50% { opacity: 0.8; transform: scale(1.05);}
             100% { opacity: 0.4; transform: scale(1);}
         }
 
+        /* ========== TYPOGRAPHY ========== */
         h1, h2, h3, h4 {
             font-family: 'Oswald', 'Bebas Neue', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 700;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* HEADER */
-        header {
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            height: 42px;
-            width: auto;
-            filter: drop-shadow(0 0 6px rgba(255,7,58,0.4));
-            background: transparent !important;
-            border: none !important;
-            outline: none !important;
-            box-shadow: none !important;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 800;
-            font-family: 'Bebas Neue', sans-serif;
-            color: #ff073a;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-        }
-        .nav-links li a {
-            text-decoration: none;
-            color: #f0f0f0;
-            font-weight: 500;
-            font-size: 14px;
-            transition: 0.25s;
-            position: relative;
-        }
-        .nav-links li a:hover {
-            color: #ff073a;
-        }
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: #ff073a;
-            transition: width 0.25s ease;
-        }
-        .nav-links li a:hover::after {
-            width: 100%;
-        }
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        .hero-content {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 30px 25px;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(4px);
-            border-radius: 32px;
-            border: 1px solid rgba(255,7,58,0.4);
-            animation: riseUp 1s ease;
-        }
-        @keyframes riseUp {
-            from { opacity: 0; transform: translateY(40px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        .hero h1 {
-            font-size: 3.2rem;
-            background: linear-gradient(135deg, #fff, #ff5e7e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 15px;
-        }
-        .hero h2 {
-            font-size: 1.5rem;
-            margin: 15px 0 10px;
-            color: #fff;
-        }
-        .hero p {
-            font-size: 1rem;
-            margin-bottom: 25px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 8px 22px;
-            background: #ff073a;
-            color: white;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 6px 8px;
-            transition: 0.3s;
-            box-shadow: 0 4px 12px rgba(255,7,58,0.4);
-            border: none;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #ff073a;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255,7,58,0.5);
-            background: #e60032;
-        }
-
-        /* Hours */
-        .hours-prominent {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            padding: 16px 25px;
-            margin: -45px auto 45px;
-            max-width: 700px;
-            text-align: center;
-            border: 1px solid rgba(255,7,58,0.5);
-        }
-        .hours-prominent h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #ff5e7e;
-        }
-        .hours-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .hours-slot {
-            background: rgba(0,0,0,0.5);
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-weight: 500;
-            font-size: 0.85rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 60px 0;
-        }
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             display: inline-block;
             background: linear-gradient(120deg, #fff, #ff7b9c);
             -webkit-background-clip: text;
@@ -384,266 +126,455 @@
         }
         .section-title h2::after {
             content: '';
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: #ff073a;
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 3px;
         }
 
-        /* About */
-        .about-text p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-        }
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+        /* CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Franchise Cards */
-        .franchise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
+        /* ========== NAVBAR (sticky, transparent logo) ========== */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,7,58,0.3);
         }
-        .franchise-card {
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        /* CLEAN LOGO – NO BACKGROUND, NO BORDER */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 4px rgba(255,7,58,0.4));
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            color: #ff073a;
+            letter-spacing: 1px;
+        }
+        .mobile-menu-btn {
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+
+        /* SIDE MENU (slide-in) */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            transition: right 0.3s ease;
+            padding: 80px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            border-left: 2px solid #ff073a;
+        }
+        .side-menu.active {
+            right: 0;
+        }
+        .side-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: 0.2s;
+        }
+        .side-menu a:hover {
+            color: #ff073a;
+            padding-left: 8px;
+        }
+        .quick-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .quick-actions a {
+            flex: 1;
+            text-align: center;
+            background: rgba(255,7,58,0.2);
+            border-radius: 40px;
+            padding: 10px;
+            font-size: 0.9rem;
+            border: 1px solid #ff073a;
+        }
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* HERO (compact) */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        .hero-content {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            border: 1px solid rgba(255,7,58,0.4);
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #fff, #ff5e7e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+        .hero h2 {
+            font-size: 1.2rem;
+            margin: 8px 0;
+            color: #fff;
+        }
+        .hero p {
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #ff073a;
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 4px 6px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff073a;
+        }
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.75rem;
+        }
+
+        /* TABS for pricing */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .tab-btn {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,7,58,0.5);
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tab-btn.active {
+            background: #ff073a;
+            border-color: #ff073a;
+        }
+        .pricing-card {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid rgba(255,7,58,0.5);
+            margin-bottom: 20px;
+        }
+        .plan-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .plan-price {
+            font-weight: 800;
+            color: #ff5e7e;
+            font-size: 1rem;
+        }
+        .best-value {
+            background: linear-gradient(135deg, #ff073a, #b0002c);
+            border-radius: 20px;
+            padding: 6px 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.7rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+        .pricing-card .btn {
+            margin-top: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Personal Training compact */
+        .personal-card {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid #ff073a;
+            margin: 16px 0;
+        }
+        .personal-icon {
+            font-size: 2.5rem;
+            color: #ff073a;
+        }
+        .personal-details {
+            flex: 1;
+        }
+        .personal-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .personal-details p {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        .personal-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ff5e7e;
+        }
+
+        /* LOCATIONS ACCORDION */
+        .accordion {
+            margin-top: 20px;
+        }
+        .accordion-item {
             background: rgba(0,0,0,0.6);
             backdrop-filter: blur(8px);
             border-radius: 20px;
-            padding: 20px;
-            border-left: 4px solid #ff073a;
-            transition: 0.2s;
+            margin-bottom: 12px;
+            overflow: hidden;
         }
-        .franchise-card h4 {
-            font-size: 1.4rem;
+        .accordion-header {
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.4);
+        }
+        .accordion-header h3 {
+            font-size: 1.1rem;
             color: #ff5e7e;
-            margin-bottom: 10px;
+        }
+        .accordion-content {
+            max-height: 0;
+            padding: 0 16px;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            padding: 12px 16px;
+        }
+        .location-buttons {
+            display: flex;
+            gap: 12px;
+            margin: 12px 0;
         }
         .trainer-list {
-            margin-top: 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            margin: 12px 0;
         }
         .trainer-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(0,0,0,0.4);
-            padding: 8px 12px;
-            border-radius: 16px;
-            flex-wrap: wrap;
+            padding: 6px 0;
         }
         .trainer-img {
-            width: 55px;
-            height: 55px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
-            flex-shrink: 0;
-            background: #333;
             border: 2px solid #ff073a;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-        .trainer-img:hover {
-            transform: scale(1.05);
         }
         .trainer-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-        }
-        .trainer-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            flex: 1;
-            gap: 8px;
-        }
-        .trainer-name {
-            font-weight: bold;
-            color: #ff5e7e;
-        }
-        .trainer-phone {
-            font-size: 0.75rem;
-            background: rgba(255,7,58,0.2);
-            padding: 3px 8px;
-            border-radius: 16px;
-        }
-        .owner-note {
-            margin-top: 20px;
-            text-align: center;
-            background: rgba(255,7,58,0.2);
-            padding: 8px;
-            border-radius: 30px;
-            font-weight: 500;
-            font-size: 0.85rem;
         }
 
-        /* Pricing */
-        .pricing-container {
+        /* ABOUT: bullet points + image */
+        .about-compact {
             display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
-            margin: 25px 0;
-        }
-        .pricing-card-big {
-            flex: 1;
-            min-width: 260px;
-            background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 20px 18px;
-            border: 1px solid rgba(255,7,58,0.5);
-        }
-        .pricing-card-big h3 {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 18px;
-            color: #ff073a;
-        }
-        .plan-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.9rem;
-        }
-        .plan-price {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #ff5e7e;
-        }
-        .admission-badge {
-            background: linear-gradient(135deg, #ff073a, #b0002c);
-            text-align: center;
-            padding: 10px;
-            border-radius: 40px;
-            font-weight: bold;
-            margin: 25px 0 15px;
-            font-size: 0.9rem;
-        }
-        .personal-training-card {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
+            gap: 20px;
+            align-items: center;
+            background: rgba(0,0,0,0.55);
             border-radius: 24px;
             padding: 20px;
-            text-align: center;
-            max-width: 420px;
-            margin: 15px auto 0;
-            border: 2px solid #ff073a;
         }
-        .personal-training-card h3 {
-            font-size: 1.5rem;
+        .about-text {
+            flex: 1;
+        }
+        .about-text ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .about-text li {
             margin-bottom: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .personal-training-card .plan-price {
-            font-size: 1.6rem;
+        .about-text li i {
+            color: #ff073a;
+            width: 18px;
         }
-
-        /* Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .gallery-item {
-            border-radius: 18px;
+        .about-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
             overflow: hidden;
-            height: 220px;
-            position: relative;
+            flex-shrink: 0;
         }
-        .gallery-item img {
+        .about-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.4s;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(0deg, #ff073a, transparent);
-            padding: 8px;
-            text-align: center;
-            transform: translateY(100%);
-            transition: 0.3s;
-            font-size: 0.8rem;
         }
 
-        /* Testimonials */
-        .testimonial {
-            background: rgba(0,0,0,0.65);
+        /* GALLERY (horizontal scroll) */
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+        }
+        .gallery-scroll .gallery-item {
+            flex: 0 0 200px;
+            height: 140px;
+            border-radius: 16px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+        .gallery-scroll img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* TESTIMONIALS (horizontal scroll) */
+        .testimonials-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding-bottom: 8px;
+        }
+        .testimonial-card {
+            flex: 0 0 260px;
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 20px;
-            margin: 15px 0;
+            padding: 16px;
             border-left: 4px solid #ff073a;
         }
-        .client {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 12px;
-        }
-        .client img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ff073a;
-        }
 
-        /* Contact */
+        /* CONTACT form */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 35px;
+            gap: 24px;
         }
         .contact-info, .contact-form {
             background: rgba(0,0,0,0.55);
             backdrop-filter: blur(8px);
-            padding: 22px;
+            padding: 20px;
             border-radius: 24px;
         }
         .contact-item {
             display: flex;
             gap: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         .contact-icon {
-            font-size: 20px;
+            font-size: 18px;
             color: #ff073a;
         }
-        .contact-form input, .contact-form textarea {
+        input, textarea {
             width: 100%;
             background: rgba(25,25,25,0.9);
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 30px;
-            padding: 8px 15px;
+            padding: 10px 16px;
             color: white;
             margin-bottom: 12px;
             font-size: 0.85rem;
         }
+
+        /* FOOTER */
         footer {
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(8px);
-            padding: 30px 0 18px;
+            padding: 24px 0 16px;
             text-align: center;
             border-top: 1px solid rgba(255,7,58,0.4);
+            margin-top: 32px;
         }
         .social-links a {
             display: inline-flex;
@@ -661,15 +592,16 @@
         }
         .social-links a:hover {
             background: #ff073a;
-            transform: translateY(-3px);
         }
-        .whatsapp-btn {
+
+        /* FLOATING WHATSAPP */
+        .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: #25D366;
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -677,573 +609,356 @@
             font-size: 28px;
             color: white;
             z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
+
+        /* ANIMATIONS */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* ========== MODAL FOR ENLARGED PROFILE ========== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .modal.show {
-            display: flex;
-            opacity: 1;
-        }
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            cursor: default;
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(255,7,58,0.5);
-            animation: modalPop 0.3s ease;
-        }
-        @keyframes modalPop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .modal-content img {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 80vh;
-            display: block;
-            border-radius: 20px;
-        }
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 32px;
-            color: white;
-            background: rgba(0,0,0,0.6);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            font-weight: bold;
-            z-index: 10001;
-        }
-        .modal-close:hover {
-            background: #ff073a;
-            transform: scale(1.1);
-        }
-
         /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .container { width: 92%; }
-            .hero h1 { font-size: 3rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .hours-prominent { max-width: 90%; margin: -35px auto 40px; }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu { display: block; }
-            .nav-links {
-                position: fixed;
-                top: 65px;
-                left: 0;
-                width: 100%;
-                background: rgba(0,0,0,0.85);
-                backdrop-filter: blur(20px);
+        @media (max-width: 640px) {
+            .about-compact {
                 flex-direction: column;
-                align-items: center;
-                padding: 18px 0;
-                transform: translateY(-150%);
-                transition: transform 0.4s;
-                gap: 16px;
-                border-bottom: 2px solid #ff073a;
-                z-index: 999;
+                text-align: center;
             }
-            .nav-links.active { transform: translateY(0); }
-            .hero h1 { font-size: 2.5rem; }
-            .hero h2 { font-size: 1.2rem; }
-            .hero p { font-size: 0.9rem; }
-            .btn { padding: 7px 18px; font-size: 0.8rem; margin: 5px 6px; }
-            .hero-content { padding: 25px 20px; margin: 0 15px; }
-            .hours-prominent { padding: 12px 20px; margin: -30px auto 35px; }
-            .hours-prominent h3 { font-size: 1.2rem; }
-            .hours-slot { font-size: 0.75rem; padding: 5px 10px; }
-            .section-title h2 { font-size: 1.8rem; }
-            .franchise-card h4 { font-size: 1.3rem; }
-            .pricing-card-big h3 { font-size: 1.3rem; }
-            .gallery-item { height: 200px; }
-        }
-
-        @media (max-width: 480px) {
-            .container { width: 94%; padding: 0 12px; }
-            .logo-text { font-size: 20px; }
-            .logo-img { height: 35px; }
-            .hero h1 { font-size: 2rem; }
-            .hero h2 { font-size: 1rem; }
-            .btn { padding: 6px 14px; font-size: 0.7rem; margin: 4px 5px; }
-            .hero-content { padding: 20px 15px; }
-            .hours-grid { gap: 10px; }
-            .hours-slot { font-size: 0.7rem; padding: 4px 8px; }
-            .section-title h2 { font-size: 1.6rem; }
-            .franchise-card { padding: 16px; }
-            .trainer-item { flex-direction: row; align-items: center; flex-wrap: wrap; }
-            .trainer-img { width: 45px; height: 45px; }
-            .pricing-card-big { min-width: 100%; }
-            .gallery-item { height: 180px; }
-            .whatsapp-btn { width: 45px; height: 45px; font-size: 24px; bottom: 15px; right: 15px; }
+            .personal-card {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- MODERN LIQUID PRELOADER (2 SECONDS) -->
     <div class="preloader" id="preloader">
-        <div class="liquid-container">
-            <div class="ring"></div>
-            <div class="liquid-blob"></div>
-            <div class="liquid-text">MAGIC</div>
-            <div class="loading-status" id="loadingStatus">LOADING</div>
-        </div>
+        <div class="preloader-spinner"></div>
     </div>
+    <div class="bg-glow"></div>
 
-<div class="bg-glow"></div>
-
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo-container">
-                <img src="logo.png" alt="Magic Fitness Lion Logo" class="logo-img" onerror="this.style.display='none'">
-                <div class="logo-text">MAGIC FITNESS</div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#franchises">Franchises</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-menu"><i class="fas fa-bars"></i></div>
-        </nav>
-    </div>
-</header>
-
-<!-- Hero -->
-<section id="home" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>MAGIC FITNESS</h1>
-            <h2>3 Gyms in Thrissur. One Family.</h2>
-            <p>Weight Training | Cardio | Personal Coaching</p>
-            <div>
-                <a href="#pricing" class="btn">View Plans</a>
-                <a href="#contact" class="btn btn-outline">Free Trial</a>
-                <a href="#franchises" class="btn btn-outline">View All Three Gyms</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Hours -->
-<div class="container">
-    <div class="hours-prominent fade-in">
-        <h3><i class="fas fa-clock"></i> Opening Hours (All Gyms)</h3>
-        <div class="hours-grid">
-            <div class="hours-slot"><span>🌅 Morning (Mixed)</span> 5:30 AM – 9:30 AM</div>
-            <div class="hours-slot"><span>👩 Women Only</span> 9:30 AM – 11:30 AM</div>
-            <div class="hours-slot"><span>🌙 Evening (All)</span> 4:00 PM – 10:00 PM</div>
-        </div>
-    </div>
-</div>
-
-<!-- About -->
-<section id="about">
-    <div class="container">
-        <div class="section-title"><h2>About Magic Fitness</h2></div>
-        <div class="about-content" style="display: flex; gap: 35px; flex-wrap: wrap;">
-            <div class="about-text" style="flex:1; background: rgba(0,0,0,0.55); padding: 22px; border-radius: 24px;">
-                <h3>Your Fitness Journey Starts Here</h3>
-                <p>With three state-of-the-art gyms across Thrissur, Magic Fitness is dedicated to making fitness accessible, effective, and inspiring. From weight training to cardio and expert personal training, we have everything you need.</p>
-                <p>Our mission: build a healthier community through discipline, motivation, and expert guidance.</p>
-                <div style="margin-top: 18px; background: rgba(0,0,0,0.6); border-radius: 20px; padding: 15px;">
-                    <h4>🏋️‍♂️ Management</h4>
-                    <p><strong>Manager:</strong> Available at gym / Contact front desk</p>
-                    <p><strong>Owner:</strong> George</p>
+    <!-- NAVBAR -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img src="logo.png" alt="Magic Fitness Lion Logo" class="logo-img" onerror="this.style.display='none'">
+                    <div class="logo-text">MAGIC FITNESS</div>
                 </div>
-            </div>
-            <div style="flex:1; border-radius: 20px; overflow: hidden;">
-                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" style="width:100%; height:100%; object-fit:cover;" alt="Gym">
-            </div>
+                <button class="mobile-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SIDE MENU -->
+    <div class="side-menu" id="sideMenu">
+        <div class="close-menu" id="closeMenu">&times;</div>
+        <a href="#home">Home</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#locations">Locations</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <div class="quick-actions">
+            <a href="tel:+918078936890"><i class="fas fa-phone-alt"></i> Call</a>
+            <a href="https://wa.me/918078936890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
-</section>
 
-<!-- Franchises -->
-<section id="franchises">
-    <div class="container">
-        <div class="section-title"><h2>Our Franchises</h2></div>
-        <div class="franchise-grid">
-            <!-- Mannuthy: 2 trainers -->
-            <div class="franchise-card fade-in">
-                <h4>🏢 Mannuthy (Main Hub)</h4>
-                <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Sree Lakshmi Nagar, Mannuthy, Thrissur - 680651</p>
-                <p>⭐ Highly-rated, gender-neutral gym specializing in cardio, strength training, and CrossFit.</p>
-                <div class="trainer-list">
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/athul-ramachandran.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Athul" alt="Athul Ramachandran">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Athul Ramachandran</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/meera-nair.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Meera" alt="Meera Nair">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Meera Nair</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Pattikkad: 2 trainers -->
-            <div class="franchise-card fade-in">
-                <h4>🏢 Pattikkad</h4>
-                <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
-                <p>Fully equipped with modern machines, dedicated cardio zone, and expert coaches.</p>
-                <div class="trainer-list">
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/arjun-s.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Arjun" alt="Arjun S">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Arjun S</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/rahul-p.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Rahul" alt="Rahul P">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Rahul P</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Poochatty: 3 trainers -->
-            <div class="franchise-card fade-in">
-                <h4>🏢 Poochatty</h4>
-                <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
-                <p>Our newest location with state-of-the-art equipment, CrossFit rig, and women‑only morning hours.</p>
-                <div class="trainer-list">
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/athul-ramachandran.jpg -->
-                            <img src="images/trainers/athul ramachandran.jpg" alt="Athul Ramachandran">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Athul Ramachandran</span>
-                            <span class="trainer-phone">📞 +91 89217 67605</span>
-                        </div>
-                    </div>
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/anjali-r.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Anjali" alt="Anjali R">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Anjali R</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
-                    <div class="trainer-item">
-                        <div class="trainer-img">
-                            <!-- Replace with actual image path: images/trainers/vishnu-n.jpg -->
-                            <img src="https://via.placeholder.com/80?text=Vishnu" alt="Vishnu N">
-                        </div>
-                        <div class="trainer-info">
-                            <span class="trainer-name">Vishnu N</span>
-                            <span class="trainer-phone">📞</span>
-                        </div>
-                    </div>
+    <!-- HERO (compact) -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>MAGIC FITNESS</h1>
+                <h2>3 Gyms in Thrissur. One Family.</h2>
+                <p>Weight Training | Cardio | Personal Coaching</p>
+                <div>
+                    <a href="#pricing" class="btn">Join Now</a>
+                    <a href="#pricing" class="btn btn-outline">View Plans</a>
                 </div>
             </div>
         </div>
-        <div class="text-center" style="margin: 22px 0 18px;">
-            <a href="#gallery" class="btn btn-outline" style="background: rgba(0,0,0,0.6);">📸 View Gym Gallery</a>
-        </div>
-        <div class="owner-note fade-in">
-            <i class="fas fa-crown"></i> Owned by <strong>George</strong> | All franchises operate under the Magic Fitness Group philosophy.
+    </section>
+
+    <!-- HOURS (still compact) -->
+    <div class="container">
+        <div class="hours-prominent fade-in" style="background: rgba(0,0,0,0.7); border-radius: 28px; padding: 12px; text-align: center; margin-bottom: 24px;">
+            <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <span>🌅 5:30–9:30 AM</span>
+                <span>👩 Women: 9:30–11:30 AM</span>
+                <span>🌙 4:00–10:00 PM</span>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- Pricing -->
-<section id="pricing">
-    <div class="container">
-        <div class="section-title"><h2>Training Plans</h2></div>
-        <div class="admission-badge">⭐ Admission Fee: ₹500</div>
-        <div class="pricing-container">
-            <div class="pricing-card-big fade-in">
-                <h3>💪 WEIGHT TRAINING</h3>
+    <!-- PRICING SECTION with TABS -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title"><h2>Membership Plans</h2></div>
+            <div class="tabs">
+                <button class="tab-btn active" data-plan="weight">Weight Training</button>
+                <button class="tab-btn" data-plan="cardio">WT + Cardio</button>
+            </div>
+            <div id="weightPlan" class="pricing-card fade-in">
+                <div class="best-value">🔥 BEST VALUE 🔥</div>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,000</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹2,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹5,000</span></div>
                 <div class="plan-row"><span>12 Months</span><span class="plan-price">₹8,000</span></div>
+                <a href="#contact" class="btn btn-sm">Join Now →</a>
             </div>
-            <div class="pricing-card-big fade-in">
-                <h3>🔥 WT + CARDIO</h3>
+            <div id="cardioPlan" class="pricing-card fade-in" style="display: none;">
+                <div class="best-value">🔥 BEST VALUE 🔥</div>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,500</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹3,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹6,500</span></div>
                 <div class="plan-row"><span>12 Months</span><span class="plan-price">₹11,000</span></div>
+                <a href="#contact" class="btn btn-sm">Join Now →</a>
+            </div>
+            <div class="admission-badge" style="background: linear-gradient(135deg,#ff073a,#b0002c); text-align:center; padding:8px; border-radius:40px; margin:8px 0;">⭐ Admission Fee: ₹500</div>
+        </div>
+    </section>
+
+    <!-- PERSONAL TRAINING (compact card) -->
+    <section>
+        <div class="container">
+            <div class="personal-card fade-in">
+                <div class="personal-icon"><i class="fas fa-dumbbell"></i></div>
+                <div class="personal-details">
+                    <h3>Personal Training</h3>
+                    <p>One‑on‑one coaching, custom diet & tracking</p>
+                    <div class="personal-price">₹5,000 <span style="font-size:0.8rem;">/ month</span></div>
+                </div>
+                <a href="#contact" class="btn btn-sm">Enquire →</a>
             </div>
         </div>
-        <div class="personal-training-card fade-in">
-            <h3>🎯 Personal Training</h3>
-            <p>One‑on‑one coaching with our experts</p>
-            <div class="plan-price">₹5,000 <span style="font-size:0.9rem;">/ month</span></div>
-            <p>Customized plans, progress tracking, diet guidance</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Gallery -->
-<section id="gallery">
-    <div class="container">
-        <div class="section-title"><h2>Gallery</h2></div>
-        <div class="gallery-filter" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 30px; flex-wrap: wrap;">
-            <button class="filter-btn active" data-gym="all" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">All Gyms</button>
-            <button class="filter-btn" data-gym="mannuthy" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Mannuthy</button>
-            <button class="filter-btn" data-gym="pattikkad" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Pattikkad</button>
-            <button class="filter-btn" data-gym="poochatty" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,7,58,0.5); padding: 5px 18px; border-radius: 30px; color: white; font-weight: 500; cursor: pointer; font-size:0.85rem;">Poochatty</button>
-        </div>
-        <div class="gallery-grid" id="galleryGrid"></div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section id="testimonials">
-    <div class="container">
-        <div class="section-title"><h2>Testimonials</h2></div>
-        <div class="testimonials-container">
-            <div class="testimonial fade-in"><p>"Amazing transformation! The trainers are supportive and the three gym locations make it super convenient."</p><div class="client"><img src="https://randomuser.me/api/portraits/men/32.jpg"><div><h4>Rajesh Kumar</h4><div class="stars">★★★★★</div></div></div></div>
-            <div class="testimonial fade-in"><p>"Clean, motivating, and great value for money. Love the women-only morning slot!"</p><div class="client"><img src="https://randomuser.me/api/portraits/women/44.jpg"><div><h4>Priya Menon</h4><div class="stars">★★★★★</div></div></div></div>
-            <div class="testimonial fade-in"><p>"Best decision I made for my health. The coaches are world-class and the community is amazing."</p><div class="client"><img src="https://randomuser.me/api/portraits/men/67.jpg"><div><h4>Vikram Nair</h4><div class="stars">★★★★★</div></div></div></div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-    <div class="container">
-        <div class="section-title"><h2>Contact & Visit</h2></div>
-        <div class="contact-grid">
-            <div class="contact-info fade-in">
-                <h3>Get in Touch</h3>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div>+91 80789 36890</div></div>
-                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
-                <div style="margin-top: 18px; background: rgba(0,0,0,0.5); padding: 12px; border-radius: 20px;">
-                    <p><strong>Manager:</strong> Enquire at front desk</p>
-                    <p><strong>Owner:</strong> George</p>
+    <!-- LOCATIONS ACCORDION -->
+    <section id="locations">
+        <div class="container">
+            <div class="section-title"><h2>Our Gyms</h2></div>
+            <div class="accordion">
+                <!-- Mannuthy -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🏢 Mannuthy (Main Hub)</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Mannuthy, Thrissur - 680651</p>
+                        <div class="location-buttons">
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="https://maps.google.com/?q=Kalpaka+Complex+Mannuthy" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
+                        </div>
+                        <div class="trainer-list">
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Athul" alt="Athul"></div><div><strong>Athul Ramachandran</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Meera" alt="Meera"></div><div><strong>Meera Nair</strong> <span class="trainer-phone">📞</span></div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pattikkad -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🏢 Pattikkad</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
+                        <div class="location-buttons">
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="https://maps.google.com/?q=Pananchery+Pattikkad" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
+                        </div>
+                        <div class="trainer-list">
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Arjun" alt="Arjun"></div><div><strong>Arjun S</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Rahul" alt="Rahul"></div><div><strong>Rahul P</strong> <span class="trainer-phone">📞</span></div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Poochatty -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>🏢 Poochatty</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
+                        <div class="location-buttons">
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="https://maps.google.com/?q=Poochatty+Thrissur" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
+                        </div>
+                        <div class="trainer-list">
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Athul" alt="Athul"></div><div><strong>Athul Ramachandran</strong> <span class="trainer-phone">📞 +91 89217 67605</span></div></div>
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Anjali" alt="Anjali"></div><div><strong>Anjali R</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Vishnu" alt="Vishnu"></div><div><strong>Vishnu N</strong> <span class="trainer-phone">📞</span></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="contact-form fade-in">
-                <form id="contactForm">
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="tel" placeholder="Mobile Number" required>
-                    <textarea rows="3" placeholder="Your fitness goal or message..."></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+        </div>
+    </section>
+
+    <!-- ABOUT (compact) -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title"><h2>Why Magic Fitness</h2></div>
+            <div class="about-compact fade-in">
+                <div class="about-text">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3 convenient locations in Thrissur</li>
+                        <li><i class="fas fa-check-circle"></i> Expert trainers & modern equipment</li>
+                        <li><i class="fas fa-check-circle"></i> Women‑only morning slots</li>
+                        <li><i class="fas fa-check-circle"></i> Personal coaching & diet guidance</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&h=200&fit=crop" alt="Gym" loading="lazy">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="container">
-        <div class="social-links">
-            <a href="https://www.facebook.com/magicfitnessgroup/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com/magic_fitness_group" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="copyright"><p>© 2025 Magic Fitness Group — 3 Locations in Thrissur | Owned by George</p></div>
-    </div>
-</footer>
-
-<a href="https://wa.me/918078936890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<!-- Modal for Trainer Profile -->
-<div id="profileModal" class="modal">
-    <div class="modal-close">&times;</div>
-    <div class="modal-content">
-        <img id="modalImage" src="" alt="Trainer">
-    </div>
-</div>
-
-<script>
-    // Gallery data
-    const galleryData = {
-        all: [
-            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ],
-        mannuthy: [
-            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ],
-        pattikkad: [
-            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ],
-        poochatty: [
-            "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1534367507877-0edd93bd013b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-            "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        ]
-    };
-
-    function renderGallery(gymKey) {
-        const grid = document.getElementById('galleryGrid');
-        const images = galleryData[gymKey] || galleryData.all;
-        grid.innerHTML = images.map(src => `
-            <div class="gallery-item">
-                <img src="${src}" alt="Gym Image">
-                <div class="gallery-caption">Magic Fitness</div>
+    <!-- GALLERY (horizontal scroll) -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title"><h2>Gallery</h2></div>
+            <div class="gallery-scroll">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=200&h=140&fit=crop" alt="Gym" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=200&h=140&fit=crop" alt="Gym" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534367507877-0edd93bd013b?w=200&h=140&fit=crop" alt="Gym" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200&h=140&fit=crop" alt="Gym" loading="lazy"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=200&h=140&fit=crop" alt="Gym" loading="lazy"></div>
             </div>
-        `).join('');
-    }
+        </div>
+    </section>
 
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderGallery(btn.getAttribute('data-gym'));
+    <!-- TESTIMONIALS (horizontal scroll) -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title"><h2>Success Stories</h2></div>
+            <div class="testimonials-scroll">
+                <div class="testimonial-card"><p>"Amazing transformation! The trainers are supportive."</p><div><strong>Rajesh Kumar</strong> ★★★★★</div></div>
+                <div class="testimonial-card"><p>"Clean, motivating, and great value for money."</p><div><strong>Priya Menon</strong> ★★★★★</div></div>
+                <div class="testimonial-card"><p>"Best decision for my health. World‑class coaches."</p><div><strong>Vikram Nair</strong> ★★★★★</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title"><h2>Get in Touch</h2></div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div>+91 80789 36890</div></div>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
+                    <div><strong>Owner:</strong> George</div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <input type="tel" placeholder="Mobile Number" required>
+                        <textarea rows="3" placeholder="Your fitness goal..."></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/magicfitnessgroup/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/magic_fitness_group" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright"><p>© 2025 Magic Fitness Group — 3 Locations in Thrissur | Owned by George</p></div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/918078936890" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        // Preloader (1.5s)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('hide');
+                    setTimeout(() => preloader.remove(), 500);
+                }
+            }, 1500);
         });
-    });
-    renderGallery('all');
 
-    // Mobile menu
-    const mobileBtn = document.querySelector('.mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    mobileBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const sideMenu = document.getElementById('sideMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        function toggleMenu(show) {
+            if (show) sideMenu.classList.add('active');
+            else sideMenu.classList.remove('active');
+        }
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeMenu.addEventListener('click', () => toggleMenu(false));
+        document.querySelectorAll('.side-menu a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e){
+        // Pricing tabs
+        const weightPlan = document.getElementById('weightPlan');
+        const cardioPlan = document.getElementById('cardioPlan');
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                if (btn.dataset.plan === 'weight') {
+                    weightPlan.style.display = 'block';
+                    cardioPlan.style.display = 'none';
+                } else {
+                    weightPlan.style.display = 'none';
+                    cardioPlan.style.display = 'block';
+                }
+            });
+        });
+
+        // Accordion
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = header.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+
+        // Fade-in on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        faders.forEach(el => observer.observe(el));
+
+        // Contact form
+        document.getElementById('contactForm')?.addEventListener('submit', (e) => {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target) target.scrollIntoView({ behavior: 'smooth' });
+            alert('Thanks! We’ll reach out soon.');
+            e.target.reset();
         });
-    });
-
-    // Fade-in
-    const faders = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-    faders.forEach(el => observer.observe(el));
-
-    // Form submit
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert("Thanks for reaching out! We'll contact you soon.");
-        e.target.reset();
-    });
-
-    // Dynamic loading messages for preloader
-    const messages = ["LOADING", "PUMPING IRON", "GETTING STRONGER", "PUSHING LIMITS", "ALMOST READY"];
-    let msgIndex = 0;
-    const statusEl = document.getElementById('loadingStatus');
-    if (statusEl) {
-        const interval = setInterval(() => {
-            msgIndex = (msgIndex + 1) % messages.length;
-            statusEl.textContent = messages[msgIndex];
-        }, 400);
-        setTimeout(() => clearInterval(interval), 2000);
-    }
-
-    // Preloader hides after exactly 2 seconds
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.classList.add('hide');
-                setTimeout(() => { preloader.style.display = 'none'; }, 500);
-            }
-        }, 2000);
-    });
-
-    // ========== MODAL FOR TRAINER PROFILE PICTURE ==========
-    const modal = document.getElementById('profileModal');
-    const modalImg = document.getElementById('modalImage');
-    const closeModalBtn = document.querySelector('.modal-close');
-
-    // Add click event to all trainer images
-    const trainerImages = document.querySelectorAll('.trainer-img img');
-    trainerImages.forEach(img => {
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            modalImg.src = img.src;
-            modal.classList.add('show');
-        });
-    });
-
-    // Close modal when clicking on background or close button
-    function closeModal() {
-        modal.classList.remove('show');
-        setTimeout(() => { modalImg.src = ''; }, 300);
-    }
-    modal.addEventListener('click', closeModal);
-    closeModalBtn.addEventListener('click', closeModal);
-    // Prevent modal content from closing when clicking on the image itself
-    document.querySelector('.modal-content').addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-</script>
+    </script>
 </body>
-</html>     
+</html>
