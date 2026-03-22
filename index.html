@@ -11,71 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ========== PRELOADER STYLES ========== */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 10%, #0a0a0a, #030303);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-            opacity: 1;
-            visibility: visible;
-        }
-        .preloader.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .weight-emoji {
-            font-size: 6rem;
-            display: inline-block;
-            animation: weightLift 1.2s ease-in-out infinite;
-            filter: drop-shadow(0 0 12px #ff073a);
-            transform-origin: center bottom;
-        }
-        @keyframes weightLift {
-            0% { transform: translateY(0px) scale(1); }
-            20% { transform: translateY(15px) scale(0.98); }
-            50% { transform: translateY(-45px) scale(1.08); }
-            70% { transform: translateY(-45px) scale(1.08); }
-            90% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(0px) scale(1); }
-        }
-        .loading-bar-container {
-            width: 220px;
-            height: 4px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-            margin-top: 35px;
-            overflow: hidden;
-        }
-        .loading-bar {
-            width: 0%;
-            height: 100%;
-            background: #ff073a;
-            border-radius: 4px;
-            animation: loadProgress 3s linear forwards;
-        }
-        @keyframes loadProgress {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-        .loading-text {
-            margin-top: 18px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: #ff5e7e;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -91,7 +26,108 @@
             font-size: 14px;
         }
 
-        /* FULL PAGE BACKGROUND WITH LION LOGO - PERFECT COVER ON ALL DEVICES */
+        /* ========== MODERN LIQUID PRELOADER ========== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 10%, #0a0a0a, #000000);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            opacity: 1;
+            visibility: visible;
+            overflow: hidden;
+        }
+        .preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .liquid-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .liquid-blob {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff073a, #ff5e7e, #ff073a);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 2s infinite ease-in-out, pulse 1.5s infinite alternate;
+            filter: blur(2px);
+            box-shadow: 0 0 30px rgba(255,7,58,0.8);
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(5deg); }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+        .ring {
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,7,58,0.3);
+            border-top: 2px solid #ff073a;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .liquid-text {
+            position: absolute;
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #ff073a, #fff, #ff073a);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 2s linear infinite, float 1.2s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(255,7,58,0.5);
+        }
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        .loading-status {
+            position: absolute;
+            bottom: -60px;
+            font-family: 'Poppins', monospace;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #ff5e7e;
+            text-transform: uppercase;
+            font-weight: 500;
+            white-space: nowrap;
+            animation: flicker 1.5s infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0.6; text-shadow: 0 0 2px #ff073a; }
+            100% { opacity: 1; text-shadow: 0 0 8px #ff073a; }
+        }
+
+        /* FULL PAGE BACKGROUND WITH LION LOGO */
         body::before {
             content: "";
             position: fixed;
@@ -157,13 +193,12 @@
             z-index: 2;
         }
 
-        /* HEADER - logo has no rectangle boundary */
+        /* HEADER */
         header {
             position: fixed;
             width: 100%;
             z-index: 1000;
             background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-            border-bottom: none;
         }
 
         nav {
@@ -179,7 +214,6 @@
             gap: 10px;
         }
 
-        /* FIX: Remove any visible rectangle around the logo image */
         .logo-img {
             height: 42px;
             width: auto;
@@ -301,7 +335,7 @@
             background: #e60032;
         }
 
-        /* Prominent Hours Section */
+        /* Hours */
         .hours-prominent {
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(10px);
@@ -397,7 +431,6 @@
             flex-direction: column;
             gap: 8px;
         }
-        /* Trainer item with image */
         .trainer-item {
             display: flex;
             align-items: center;
@@ -415,6 +448,11 @@
             flex-shrink: 0;
             background: #333;
             border: 2px solid #ff073a;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .trainer-img:hover {
+            transform: scale(1.05);
         }
         .trainer-img img {
             width: 100%;
@@ -650,6 +688,72 @@
             transform: translateY(0);
         }
 
+        /* ========== MODAL FOR ENLARGED PROFILE ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: default;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255,7,58,0.5);
+            animation: modalPop 0.3s ease;
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-content img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border-radius: 20px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: bold;
+            z-index: 10001;
+        }
+        .modal-close:hover {
+            background: #ff073a;
+            transform: scale(1.1);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .container { width: 92%; }
@@ -712,13 +816,14 @@
     </style>
 </head>
 <body>
-    <!-- PRELOADER -->
+    <!-- MODERN LIQUID PRELOADER (2 SECONDS) -->
     <div class="preloader" id="preloader">
-        <div class="weight-emoji">🏋️‍♂️</div>
-        <div class="loading-bar-container">
-            <div class="loading-bar"></div>
+        <div class="liquid-container">
+            <div class="ring"></div>
+            <div class="liquid-blob"></div>
+            <div class="liquid-text">MAGIC</div>
+            <div class="loading-status" id="loadingStatus">LOADING</div>
         </div>
-        <div class="loading-text">PUSHING LIMITS...</div>
     </div>
 
 <div class="bg-glow"></div>
@@ -807,7 +912,8 @@
                 <div class="trainer-list">
                     <div class="trainer-item">
                         <div class="trainer-img">
-                            <img src="images/trainers/athul-ramachandran.jpg" alt="Athul Ramachandran">
+                            <!-- Replace with actual image path: images/trainers/athul-ramachandran.jpg -->
+                            <img src="https://via.placeholder.com/80?text=Athul" alt="Athul Ramachandran">
                         </div>
                         <div class="trainer-info">
                             <span class="trainer-name">Athul Ramachandran</span>
@@ -816,6 +922,7 @@
                     </div>
                     <div class="trainer-item">
                         <div class="trainer-img">
+                            <!-- Replace with actual image path: images/trainers/meera-nair.jpg -->
                             <img src="https://via.placeholder.com/80?text=Meera" alt="Meera Nair">
                         </div>
                         <div class="trainer-info">
@@ -833,6 +940,7 @@
                 <div class="trainer-list">
                     <div class="trainer-item">
                         <div class="trainer-img">
+                            <!-- Replace with actual image path: images/trainers/arjun-s.jpg -->
                             <img src="https://via.placeholder.com/80?text=Arjun" alt="Arjun S">
                         </div>
                         <div class="trainer-info">
@@ -842,6 +950,7 @@
                     </div>
                     <div class="trainer-item">
                         <div class="trainer-img">
+                            <!-- Replace with actual image path: images/trainers/rahul-p.jpg -->
                             <img src="https://via.placeholder.com/80?text=Rahul" alt="Rahul P">
                         </div>
                         <div class="trainer-info">
@@ -859,7 +968,8 @@
                 <div class="trainer-list">
                     <div class="trainer-item">
                         <div class="trainer-img">
-                            <img src="https://via.placeholder.com/80?text=Athul" alt="Athul Ramachandran">
+                            <!-- Replace with actual image path: images/trainers/athul-ramachandran.jpg -->
+                            <img src="images/trainers/athul ramachandran.jpg" alt="Athul Ramachandran">
                         </div>
                         <div class="trainer-info">
                             <span class="trainer-name">Athul Ramachandran</span>
@@ -868,6 +978,7 @@
                     </div>
                     <div class="trainer-item">
                         <div class="trainer-img">
+                            <!-- Replace with actual image path: images/trainers/anjali-r.jpg -->
                             <img src="https://via.placeholder.com/80?text=Anjali" alt="Anjali R">
                         </div>
                         <div class="trainer-info">
@@ -877,6 +988,7 @@
                     </div>
                     <div class="trainer-item">
                         <div class="trainer-img">
+                            <!-- Replace with actual image path: images/trainers/vishnu-n.jpg -->
                             <img src="https://via.placeholder.com/80?text=Vishnu" alt="Vishnu N">
                         </div>
                         <div class="trainer-info">
@@ -991,6 +1103,14 @@
 
 <a href="https://wa.me/918078936890" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+<!-- Modal for Trainer Profile -->
+<div id="profileModal" class="modal">
+    <div class="modal-close">&times;</div>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Trainer">
+    </div>
+</div>
+
 <script>
     // Gallery data
     const galleryData = {
@@ -1075,16 +1195,55 @@
         e.target.reset();
     });
 
-    // Preloader exactly 3 seconds
+    // Dynamic loading messages for preloader
+    const messages = ["LOADING", "PUMPING IRON", "GETTING STRONGER", "PUSHING LIMITS", "ALMOST READY"];
+    let msgIndex = 0;
+    const statusEl = document.getElementById('loadingStatus');
+    if (statusEl) {
+        const interval = setInterval(() => {
+            msgIndex = (msgIndex + 1) % messages.length;
+            statusEl.textContent = messages[msgIndex];
+        }, 400);
+        setTimeout(() => clearInterval(interval), 2000);
+    }
+
+    // Preloader hides after exactly 2 seconds
     window.addEventListener('load', function() {
         setTimeout(function() {
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.classList.add('hide');
-                setTimeout(() => { preloader.style.display = 'none'; }, 800);
+                setTimeout(() => { preloader.style.display = 'none'; }, 500);
             }
-        }, 3000);
+        }, 2000);
+    });
+
+    // ========== MODAL FOR TRAINER PROFILE PICTURE ==========
+    const modal = document.getElementById('profileModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModalBtn = document.querySelector('.modal-close');
+
+    // Add click event to all trainer images
+    const trainerImages = document.querySelectorAll('.trainer-img img');
+    trainerImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            modalImg.src = img.src;
+            modal.classList.add('show');
+        });
+    });
+
+    // Close modal when clicking on background or close button
+    function closeModal() {
+        modal.classList.remove('show');
+        setTimeout(() => { modalImg.src = ''; }, 300);
+    }
+    modal.addEventListener('click', closeModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    // Prevent modal content from closing when clicking on the image itself
+    document.querySelector('.modal-content').addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 </script>
 </body>
-</html>
+</html>     
