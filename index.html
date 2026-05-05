@@ -19,43 +19,11 @@
 
         body {
             font-family: 'Poppins', 'Inter', sans-serif;
-            background-color: #0a0a0a;
+            background-color: #000000;
             color: #f0f0f0;
             line-height: 1.5;
             overflow-x: hidden;
             font-size: 14px;
-        }
-
-        /* PRELOADER (simplified, 1.5s) */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 10%, #0a0a0a, #000000);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-            opacity: 1;
-            visibility: visible;
-        }
-        .preloader.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-        .preloader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,7,58,0.3);
-            border-top-color: #ff073a;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         /* BACKGROUND (logo remains) */
@@ -66,11 +34,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('logo.png') center center / cover no-repeat;
-            filter: brightness(0.55) contrast(1.1);
+            background: url('logo.png') center center / 85% auto no-repeat;
+            filter: brightness(0.4) contrast(1.1);
             z-index: -2;
             pointer-events: none;
+            mix-blend-mode: lighten;
             animation: slowZoom 20s infinite alternate ease-in-out;
+        }
+        @media (max-width: 768px) {
+            body::before {
+                background-size: 95% auto;
+                background-position: center 25%;
+                filter: brightness(0.35);
+            }
         }
         @keyframes slowZoom {
             0% { transform: scale(1); }
@@ -83,20 +59,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
-            z-index: -1;
+            background: #000000;
+            z-index: -3;
             pointer-events: none;
-        }
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 50% 50%, rgba(255,7,58,0.12), transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            animation: slowBreathing 8s infinite ease-in-out;
         }
         @keyframes slowBreathing {
             0% { opacity: 0.4; transform: scale(1);}
@@ -116,7 +81,7 @@
             margin-bottom: 24px;
         }
         .section-title h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             display: inline-block;
             background: linear-gradient(120deg, #fff, #ff7b9c);
             -webkit-background-clip: text;
@@ -146,37 +111,41 @@
             z-index: 2;
         }
 
-        /* ========== NAVBAR (sticky, transparent logo) ========== */
+        /* ========== NAVBAR (sticky) ========== */
         header {
             position: sticky;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,7,58,0.3);
+            background: #000000 !important;
+            border-bottom: 1px solid rgba(255,7,58,0.2);
         }
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
+            padding: 10px 0;
         }
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            background: transparent !important;
+            border: none !important;
+            padding: 0;
+            margin: 0;
         }
-        /* CLEAN LOGO – NO BACKGROUND, NO BORDER */
         .logo-img {
-            height: 40px;
+            height: 45px;
             width: auto;
-            filter: drop-shadow(0 0 4px rgba(255,7,58,0.4));
+            object-fit: contain;
+            mix-blend-mode: screen;
+            filter: contrast(1.2) brightness(1.1);
+            display: block;
             background: transparent !important;
             border: none !important;
             outline: none !important;
             box-shadow: none !important;
-            object-fit: contain;
         }
         .logo-text {
             font-size: 1.4rem;
@@ -185,7 +154,25 @@
             color: #ff073a;
             letter-spacing: 1px;
         }
+        .desktop-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .desktop-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        .desktop-menu a:hover {
+            color: #ff073a;
+        }
         .mobile-menu-btn {
+            display: none;
             font-size: 1.6rem;
             cursor: pointer;
             color: white;
@@ -193,96 +180,94 @@
             border: none;
         }
 
-        /* SIDE MENU (slide-in) */
-        .side-menu {
+        /* TOP EXPANDING MOBILE NAV */
+        .mobile-nav {
             position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            transition: right 0.3s ease;
-            padding: 80px 24px 24px;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            transition: top 0.4s ease;
+            padding: 80px 20px 30px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            border-left: 2px solid #ff073a;
+            gap: 10px;
+            border-bottom: 2px solid #ff073a;
         }
-        .side-menu.active {
-            right: 0;
+        .mobile-nav.active {
+            top: 0;
         }
-        .side-menu a {
+        .mobile-nav a {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
-            font-weight: 500;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: 0.2s;
+            font-weight: 600;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .side-menu a:hover {
-            color: #ff073a;
-            padding-left: 8px;
-        }
-        .quick-actions {
+        .mobile-nav .quick-actions {
             display: flex;
-            gap: 16px;
-            margin-top: 24px;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .quick-actions a {
+        .mobile-nav .quick-actions a {
             flex: 1;
             text-align: center;
-            background: rgba(255,7,58,0.2);
-            border-radius: 40px;
-            padding: 10px;
+            background: #ff073a;
+            border-radius: 30px;
+            padding: 12px;
             font-size: 0.9rem;
-            border: 1px solid #ff073a;
-        }
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.8rem;
             color: white;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            border: none;
+        }
+        .mobile-nav .quick-actions a.wa-btn {
+            background: #25D366;
         }
 
         /* HERO (compact) */
         .hero {
-            min-height: 70vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 80px 0 40px;
         }
         .hero-content {
-            max-width: 500px;
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px 16px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            border-radius: 28px;
-            border: 1px solid rgba(255,7,58,0.4);
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255,7,58,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .hero h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, #fff, #ff5e7e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 8px;
+            font-size: 2.8rem;
+            font-family: 'Bebas Neue', sans-serif;
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255,7,58,0.3);
         }
         .hero h2 {
-            font-size: 1.2rem;
-            margin: 8px 0;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: #fff;
+            font-weight: 700;
         }
         .hero p {
-            font-size: 0.9rem;
-            margin-bottom: 16px;
+            font-size: 1rem;
+            margin-bottom: 24px;
+            color: #ccc;
         }
         .btn {
             display: inline-block;
@@ -410,16 +395,31 @@
             overflow: hidden;
         }
         .accordion-header {
-            padding: 14px 16px;
+            padding: 18px 20px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.4);
+            background: rgba(255,7,58,0.1);
+            border: 1px solid rgba(255,7,58,0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .accordion-header:hover {
+            background: rgba(255,7,58,0.2);
+            border-color: #ff073a;
+            transform: translateY(-2px);
         }
         .accordion-header h3 {
             font-size: 1.1rem;
-            color: #ff5e7e;
+            color: #fff;
+            margin: 0;
+        }
+        .accordion-item.active .accordion-header {
+            background: rgba(255,7,58,0.25);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: #ff073a;
         }
         .accordion-content {
             max-height: 0;
@@ -438,25 +438,131 @@
             margin: 12px 0;
         }
         .trainer-list {
-            margin: 12px 0;
+            margin: 16px 0;
+            display: grid;
+            gap: 16px;
         }
         .trainer-item {
             display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .trainer-main {
+            display: flex;
             align-items: center;
             gap: 12px;
-            padding: 6px 0;
+            margin-bottom: 12px;
         }
         .trainer-img {
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             overflow: hidden;
             border: 2px solid #ff073a;
+            cursor: pointer;
+            flex-shrink: 0;
         }
         .trainer-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+        .trainer-info h4 {
+            font-size: 1.1rem;
+            margin: 0;
+            color: #fff;
+        }
+        .trainer-title {
+            font-size: 0.8rem;
+            color: #ff5e7e;
+            font-weight: 600;
+        }
+        .trainer-desc {
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.4;
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 8px;
+            margin-bottom: 8px;
+        }
+        .trainer-desc::-webkit-scrollbar {
+            width: 4px;
+        }
+        .trainer-desc::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .trainer-desc::-webkit-scrollbar-thumb {
+            background: #ff073a;
+            border-radius: 10px;
+        }
+
+        /* IMAGE MODAL (WhatsApp style) */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .image-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        .close-modal:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .trainer-contact {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ff073a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .trainer-contact:hover {
+            text-decoration: underline;
         }
 
         /* ABOUT: bullet points + image */
@@ -624,6 +730,29 @@
         }
 
         /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .desktop-menu {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+            }
+            .hero-content {
+                padding: 30px 16px;
+                margin: 0 10px;
+            }
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
         @media (max-width: 640px) {
             .about-compact {
                 flex-direction: column;
@@ -633,13 +762,16 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="preloader" id="preloader">
-        <div class="preloader-spinner"></div>
-    </div>
     <div class="bg-glow"></div>
 
     <!-- NAVBAR -->
@@ -650,14 +782,24 @@
                     <img src="logo.png" alt="Magic Fitness Lion Logo" class="logo-img" onerror="this.style.display='none'">
                     <div class="logo-text">MAGIC FITNESS</div>
                 </div>
+                
+                <div class="desktop-menu">
+                    <a href="#home">Home</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#locations">Locations</a>
+                    <a href="#about">About</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
                 <button class="mobile-menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <!-- SIDE MENU -->
-    <div class="side-menu" id="sideMenu">
-        <div class="close-menu" id="closeMenu">&times;</div>
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
         <a href="#home">Home</a>
         <a href="#pricing">Pricing</a>
         <a href="#locations">Locations</a>
@@ -667,7 +809,7 @@
         <a href="#contact">Contact</a>
         <div class="quick-actions">
             <a href="tel:+918078936890"><i class="fas fa-phone-alt"></i> Call</a>
-            <a href="https://wa.me/918078936890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://wa.me/918078936890" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 
@@ -755,12 +897,20 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Mannuthy, Thrissur - 680651</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Kalpaka+Complex+Mannuthy" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Athul" alt="Athul"></div><div><strong>Athul Ramachandran</strong> <span class="trainer-phone">📞</span></div></div>
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Meera" alt="Meera"></div><div><strong>Meera Nair</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('https://via.placeholder.com/60?text=Meera')"><img src="https://via.placeholder.com/60?text=Meera" alt="Meera Nair"></div>
+                                    <div class="trainer-info">
+                                        <h4>Meera Nair</h4>
+                                        <div class="trainer-title">Senior Fitness Coach</div>
+                                    </div>
+                                </div>
+                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -773,12 +923,30 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Pananchery+Pattikkad" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Arjun" alt="Arjun"></div><div><strong>Arjun S</strong> <span class="trainer-phone">📞</span></div></div>
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Rahul" alt="Rahul"></div><div><strong>Rahul P</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('https://via.placeholder.com/60?text=Arjun')"><img src="https://via.placeholder.com/60?text=Arjun" alt="Arjun S"></div>
+                                    <div class="trainer-info">
+                                        <h4>Arjun S</h4>
+                                        <div class="trainer-title">Fitness Coach</div>
+                                    </div>
+                                </div>
+                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                            </div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('https://via.placeholder.com/60?text=Rahul')"><img src="https://via.placeholder.com/60?text=Rahul" alt="Rahul P"></div>
+                                    <div class="trainer-info">
+                                        <h4>Rahul P</h4>
+                                        <div class="trainer-title">Strength Trainer</div>
+                                    </div>
+                                </div>
+                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -791,13 +959,48 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call</a>
+                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Poochatty+Thrissur" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Athul" alt="Athul"></div><div><strong>Athul Ramachandran</strong> <span class="trainer-phone">📞 +91 89217 67605</span></div></div>
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Anjali" alt="Anjali"></div><div><strong>Anjali R</strong> <span class="trainer-phone">📞</span></div></div>
-                            <div class="trainer-item"><div class="trainer-img"><img src="https://via.placeholder.com/40?text=Vishnu" alt="Vishnu"></div><div><strong>Vishnu N</strong> <span class="trainer-phone">📞</span></div></div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('athul.png')"><img src="athul.png" alt="Athul Ramachandran"></div>
+                                    <div class="trainer-info">
+                                        <h4>Athul Ramachandran</h4>
+                                        <div class="trainer-title">Fitness Trainer | Competitive Bodybuilder</div>
+                                    </div>
+                                </div>
+                                <div class="trainer-desc">
+                                    Athul has 7+ years of experience in fitness training and physique transformation, helping clients build strength, improve conditioning, and achieve stage-ready physiques. A competitive bodybuilder with proven results, his key achievements include:<br><br>
+                                    🏆 2× Mr. Thrissur Jr.<br>
+                                    🏆 Mr. Kerala Jr.<br>
+                                    🏆 Mr. India Jr. (2025)<br>
+                                    🏆 Mr. India Jr. & Senior (2026)<br><br>
+                                    He specializes in muscle building, fat loss, and competition prep, offering structured training and practical nutrition guidance. His approach is focused on consistency, proper form, and sustainable results tailored to each individual.
+                                </div>
+                                <a href="tel:+918921767605" class="trainer-contact">📞 +91 89217 67605</a>
+                            </div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('https://via.placeholder.com/60?text=Anjali')"><img src="https://via.placeholder.com/60?text=Anjali" alt="Anjali R"></div>
+                                    <div class="trainer-info">
+                                        <h4>Anjali R</h4>
+                                        <div class="trainer-title">Fitness Coach</div>
+                                    </div>
+                                </div>
+                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                            </div>
+                            <div class="trainer-item">
+                                <div class="trainer-main">
+                                    <div class="trainer-img" onclick="openImageModal('https://via.placeholder.com/60?text=Vishnu')"><img src="https://via.placeholder.com/60?text=Vishnu" alt="Vishnu N"></div>
+                                    <div class="trainer-info">
+                                        <h4>Vishnu N</h4>
+                                        <div class="trainer-title">Personal Trainer</div>
+                                    </div>
+                                </div>
+                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -858,7 +1061,7 @@
             <div class="contact-grid">
                 <div class="contact-info fade-in">
                     <h3>Contact Info</h3>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div>+91 80789 36890</div></div>
+                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><a href="tel:+918078936890" style="color: inherit; text-decoration: none;">+91 80789 36890</a></div></div>
                     <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
                     <div><strong>Owner:</strong> George</div>
                 </div>
@@ -887,29 +1090,64 @@
 
     <a href="https://wa.me/918078936890" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+    <!-- IMAGE MODAL -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
     <script>
-        // Preloader (1.5s)
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const preloader = document.getElementById('preloader');
-                if (preloader) {
-                    preloader.classList.add('hide');
-                    setTimeout(() => preloader.remove(), 500);
-                }
-            }, 1500);
+        // Image Modal logic
+        const imageModal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.getElementById('closeModal');
+
+        function openImageModal(src) {
+            modalImg.src = src;
+            imageModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        closeModal.addEventListener('click', () => {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
         });
 
-        // Mobile menu
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Mobile menu logic
         const menuBtn = document.getElementById('menuBtn');
-        const sideMenu = document.getElementById('sideMenu');
-        const closeMenu = document.getElementById('closeMenu');
-        function toggleMenu(show) {
-            if (show) sideMenu.classList.add('active');
-            else sideMenu.classList.remove('active');
+        const mobileNav = document.getElementById('mobileNav');
+        const menuIcon = menuBtn.querySelector('i');
+
+        function toggleMenu() {
+            mobileNav.classList.toggle('active');
+            const isActive = mobileNav.classList.contains('active');
+            
+            // Change icon between bars and times (X)
+            menuIcon.classList.toggle('fa-bars', !isActive);
+            menuIcon.classList.toggle('fa-times', isActive);
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isActive ? 'hidden' : 'auto';
         }
-        menuBtn.addEventListener('click', () => toggleMenu(true));
-        closeMenu.addEventListener('click', () => toggleMenu(false));
-        document.querySelectorAll('.side-menu a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                document.body.style.overflow = 'auto';
+            });
+        });
 
         // Pricing tabs
         const weightPlan = document.getElementById('weightPlan');
