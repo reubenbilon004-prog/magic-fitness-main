@@ -136,7 +136,7 @@
             margin: 0;
         }
         .logo-img {
-            height: 45px;
+            height: 60px;
             width: auto;
             object-fit: contain;
             mix-blend-mode: screen;
@@ -148,7 +148,7 @@
             box-shadow: none !important;
         }
         .logo-text {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 800;
             font-family: 'Bebas Neue', sans-serif;
             color: #ff073a;
@@ -315,13 +315,15 @@
             background: #ff073a;
             border-color: #ff073a;
         }
+        /* Pricing cards */
         .pricing-card {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
+            background: #111111;
             border-radius: 24px;
-            padding: 20px;
-            border: 1px solid rgba(255,7,58,0.5);
-            margin-bottom: 20px;
+            padding: 25px;
+            border: 1px solid #ff073a;
+            margin: 20px 0;
+            display: block;
+            width: 100%;
         }
         .plan-row {
             display: flex;
@@ -634,24 +636,322 @@
             padding-bottom: 8px;
         }
         .testimonial-card {
-            flex: 0 0 260px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
+            flex: 0 0 280px;
+            background: #111111;
             border-radius: 20px;
-            padding: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
             border-left: 4px solid #ff073a;
         }
 
         /* CONTACT form */
         .contact-grid {
             display: grid;
-            gap: 24px;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        @media (min-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1.5fr;
+            }
         }
         .contact-info, .contact-form {
-            background: rgba(0,0,0,0.55);
-            backdrop-filter: blur(8px);
-            padding: 20px;
+            background: #111111;
+            padding: 25px;
             border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Personal Training compact */
+        .personal-card {
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid #ff073a;
+            margin: 16px 0;
+        }
+        .personal-icon {
+            font-size: 2.5rem;
+            color: #ff073a;
+        }
+        .personal-details {
+            flex: 1;
+        }
+        .personal-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .personal-details p {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        .personal-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ff5e7e;
+        }
+
+        /* LOCATIONS ACCORDION */
+        .accordion {
+            margin-top: 20px;
+        }
+        .accordion-item {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .accordion-header {
+            padding: 18px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,7,58,0.1);
+            border: 1px solid rgba(255,7,58,0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .accordion-header:hover {
+            background: rgba(255,7,58,0.2);
+            border-color: #ff073a;
+            transform: translateY(-2px);
+        }
+        .accordion-header h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin: 0;
+        }
+        .accordion-item.active .accordion-header {
+            background: rgba(255,7,58,0.25);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: #ff073a;
+        }
+        .accordion-content {
+            max-height: 0;
+            padding: 0 16px;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 800px;
+            padding: 12px 16px;
+        }
+        .location-buttons {
+            display: flex;
+            gap: 12px;
+            margin: 12px 0;
+        }
+        .trainer-list {
+            margin: 16px 0;
+            display: grid;
+            gap: 16px;
+        }
+        .trainer-item {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .trainer-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .trainer-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #ff073a;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .trainer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .trainer-info h4 {
+            font-size: 1.1rem;
+            margin: 0;
+            color: #fff;
+        }
+        .trainer-title {
+            font-size: 0.8rem;
+            color: #ff5e7e;
+            font-weight: 600;
+        }
+        .trainer-desc {
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.4;
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 8px;
+            margin-bottom: 8px;
+        }
+        .trainer-desc::-webkit-scrollbar {
+            width: 4px;
+        }
+        .trainer-desc::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+        }
+        .trainer-desc::-webkit-scrollbar-thumb {
+            background: #ff073a;
+            border-radius: 10px;
+        }
+
+        /* IMAGE MODAL (WhatsApp style) */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .image-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        .close-modal:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .trainer-contact {
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ff073a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .trainer-contact:hover {
+            text-decoration: underline;
+        }
+
+        /* ABOUT: bullet points + image */
+        .about-compact {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: rgba(0,0,0,0.55);
+            border-radius: 24px;
+            padding: 20px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-text ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+        .about-text li {
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .about-text li i {
+            color: #ff073a;
+            width: 18px;
+        }
+        .about-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* GALLERY (horizontal scroll) */
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+        }
+        .gallery-scroll .gallery-item {
+            flex: 0 0 200px;
+            height: 140px;
+            border-radius: 16px;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+        .gallery-scroll img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* TESTIMONIALS (horizontal scroll) */
+        .testimonials-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding-bottom: 8px;
+        }
+        .testimonial-card {
+            flex: 0 0 260px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 16px;
+            border-left: 4px solid #ff073a;
         }
         .contact-item {
             display: flex;
@@ -716,6 +1016,94 @@
             color: white;
             z-index: 999;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* ========== GLASSY CONTACT BAR ========== */
+        .glassy-contact-bar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            max-width: 1000px;
+        }
+        .glassy-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .glassy-contact-item:hover {
+            transform: translateY(-2px);
+        }
+        .glassy-contact-item i {
+            font-size: 1.4rem;
+            color: #ff073a;
+        }
+
+        /* HIGHLIGHTED CALL BUTTON */
+        .btn-call-highlight {
+            background: linear-gradient(135deg, #ff073a, #ff5e7e) !important;
+            box-shadow: 0 0 15px rgba(255, 7, 58, 0.5);
+            animation: pulse-red 2s infinite;
+            border: none !important;
+            color: white !important;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 7, 58, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 7, 58, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 7, 58, 0); }
+        }
+
+        /* CONTACT CHOICE MODAL */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 11000;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-modal.active { display: flex; }
+        .contact-modal-content {
+            background: #111;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid #ff073a;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .contact-modal-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-modal-btns .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        /* TRAINER SCROLL FIX */
+        .trainer-desc {
+            max-height: 120px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* Better touch scrolling */
+            scrollbar-width: thin;
+            scrollbar-color: #ff073a rgba(255,255,255,0.05);
         }
 
         /* ANIMATIONS */
@@ -808,8 +1196,8 @@
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
         <div class="quick-actions">
-            <a href="tel:+918078936890"><i class="fas fa-phone-alt"></i> Call</a>
-            <a href="https://wa.me/918078936890" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="tel:+919633271370" class="btn-call-highlight"><i class="fas fa-phone-alt"></i> Call</a>
+            <a href="https://wa.me/919633271370" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </div>
 
@@ -820,8 +1208,8 @@
                 <h1>MAGIC FITNESS</h1>
                 <h2>3 Gyms in Thrissur. One Family.</h2>
                 <p>Weight Training | Cardio | Personal Coaching</p>
-                <div>
-                    <a href="#pricing" class="btn">Join Now</a>
+                <div class="hero-btns">
+                    <button class="btn open-contact-modal">Join Now</button>
                     <a href="#pricing" class="btn btn-outline">View Plans</a>
                 </div>
             </div>
@@ -830,7 +1218,7 @@
 
     <!-- HOURS (still compact) -->
     <div class="container">
-        <div class="hours-prominent fade-in" style="background: rgba(0,0,0,0.7); border-radius: 28px; padding: 12px; text-align: center; margin-bottom: 24px;">
+        <div class="hours-prominent" style="background: rgba(0,0,0,0.7); border-radius: 28px; padding: 12px; text-align: center; margin-bottom: 24px;">
             <h3><i class="fas fa-clock"></i> Opening Hours</h3>
             <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
                 <span>🌅 5:30–9:30 AM</span>
@@ -848,21 +1236,21 @@
                 <button class="tab-btn active" data-plan="weight">Weight Training</button>
                 <button class="tab-btn" data-plan="cardio">WT + Cardio</button>
             </div>
-            <div id="weightPlan" class="pricing-card fade-in">
+            <div id="weightPlan" class="pricing-card">
                 <div class="best-value">🔥 BEST VALUE 🔥</div>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,000</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹2,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹5,000</span></div>
                 <div class="plan-row"><span>12 Months</span><span class="plan-price">₹8,000</span></div>
-                <a href="#contact" class="btn btn-sm">Join Now →</a>
+                <button class="btn btn-sm open-contact-modal">Join Now →</button>
             </div>
-            <div id="cardioPlan" class="pricing-card fade-in" style="display: none;">
+            <div id="cardioPlan" class="pricing-card" style="display: none;">
                 <div class="best-value">🔥 BEST VALUE 🔥</div>
                 <div class="plan-row"><span>Monthly</span><span class="plan-price">₹1,500</span></div>
                 <div class="plan-row"><span>3 Months</span><span class="plan-price">₹3,500</span></div>
                 <div class="plan-row"><span>6 Months</span><span class="plan-price">₹6,500</span></div>
                 <div class="plan-row"><span>12 Months</span><span class="plan-price">₹11,000</span></div>
-                <a href="#contact" class="btn btn-sm">Join Now →</a>
+                <button class="btn btn-sm open-contact-modal">Join Now →</button>
             </div>
             <div class="admission-badge" style="background: linear-gradient(135deg,#ff073a,#b0002c); text-align:center; padding:8px; border-radius:40px; margin:8px 0;">⭐ Admission Fee: ₹500</div>
         </div>
@@ -871,7 +1259,7 @@
     <!-- PERSONAL TRAINING (compact card) -->
     <section>
         <div class="container">
-            <div class="personal-card fade-in">
+            <div class="personal-card">
                 <div class="personal-icon"><i class="fas fa-dumbbell"></i></div>
                 <div class="personal-details">
                     <h3>Personal Training</h3>
@@ -897,7 +1285,7 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> Kalpaka Complex, Kundukulam St Rd, Mannuthy, Thrissur - 680651</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
+                            <a href="tel:+919633271370" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Kalpaka+Complex+Mannuthy" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
@@ -909,7 +1297,7 @@
                                         <div class="trainer-title">Senior Fitness Coach</div>
                                     </div>
                                 </div>
-                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                                <a href="tel:+919633271370" class="trainer-contact">📞 Contact Hub</a>
                             </div>
                         </div>
                     </div>
@@ -923,7 +1311,7 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> H84G+Q73, Pananchery, Pattikkad, Thrissur - 680652</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
+                            <a href="tel:+919633271370" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Pananchery+Pattikkad" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
@@ -935,7 +1323,7 @@
                                         <div class="trainer-title">Fitness Coach</div>
                                     </div>
                                 </div>
-                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                                <a href="tel:+919633271370" class="trainer-contact">📞 Contact Hub</a>
                             </div>
                             <div class="trainer-item">
                                 <div class="trainer-main">
@@ -945,7 +1333,7 @@
                                         <div class="trainer-title">Strength Trainer</div>
                                     </div>
                                 </div>
-                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                                <a href="tel:+919633271370" class="trainer-contact">📞 Contact Hub</a>
                             </div>
                         </div>
                     </div>
@@ -959,7 +1347,7 @@
                     <div class="accordion-content">
                         <p><strong>Address:</strong> Poochatty, Thrissur, Kerala</p>
                         <div class="location-buttons">
-                            <a href="tel:+918078936890" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
+                            <a href="tel:+919633271370" class="btn btn-sm"><i class="fas fa-phone-alt"></i> Call Hub</a>
                             <a href="https://maps.google.com/?q=Poochatty+Thrissur" target="_blank" class="btn btn-sm btn-outline"><i class="fas fa-directions"></i> Directions</a>
                         </div>
                         <div class="trainer-list">
@@ -979,7 +1367,6 @@
                                     🏆 Mr. India Jr. & Senior (2026)<br><br>
                                     He specializes in muscle building, fat loss, and competition prep, offering structured training and practical nutrition guidance. His approach is focused on consistency, proper form, and sustainable results tailored to each individual.
                                 </div>
-                                <a href="tel:+918921767605" class="trainer-contact">📞 +91 89217 67605</a>
                             </div>
                             <div class="trainer-item">
                                 <div class="trainer-main">
@@ -989,7 +1376,7 @@
                                         <div class="trainer-title">Fitness Coach</div>
                                     </div>
                                 </div>
-                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                                <a href="tel:+919633271370" class="trainer-contact">📞 Contact Hub</a>
                             </div>
                             <div class="trainer-item">
                                 <div class="trainer-main">
@@ -999,7 +1386,7 @@
                                         <div class="trainer-title">Personal Trainer</div>
                                     </div>
                                 </div>
-                                <a href="tel:+918078936890" class="trainer-contact">📞 Contact Hub</a>
+                                <a href="tel:+919633271370" class="trainer-contact">📞 Contact Hub</a>
                             </div>
                         </div>
                     </div>
@@ -1012,7 +1399,7 @@
     <section id="about">
         <div class="container">
             <div class="section-title"><h2>Why Magic Fitness</h2></div>
-            <div class="about-compact fade-in">
+            <div class="about-compact">
                 <div class="about-text">
                     <ul>
                         <li><i class="fas fa-check-circle"></i> 3 convenient locations in Thrissur</li>
@@ -1047,9 +1434,35 @@
         <div class="container">
             <div class="section-title"><h2>Success Stories</h2></div>
             <div class="testimonials-scroll">
-                <div class="testimonial-card"><p>"Amazing transformation! The trainers are supportive."</p><div><strong>Rajesh Kumar</strong> ★★★★★</div></div>
-                <div class="testimonial-card"><p>"Clean, motivating, and great value for money."</p><div><strong>Priya Menon</strong> ★★★★★</div></div>
-                <div class="testimonial-card"><p>"Best decision for my health. World‑class coaches."</p><div><strong>Vikram Nair</strong> ★★★★★</div></div>
+                <div class="testimonial-card">
+                    <p>"Kidilan gym in Thrissur! The trainers are highly professional and the atmosphere is very motivating. Highly recommended for transformation."</p>
+                    <div><strong>Akhil Das</strong> ★★★★★</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I've been working out here for 6 months. Clean, well-maintained equipment and the trainers are very friendly. Best gym experience in Mannuthy."</p>
+                    <div><strong>Sreejith P.</strong> ★★★★★</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Great place for ladies too. Very comfortable environment and knowledgeable coaches who help us reach our goals. Superb results!"</p>
+                    <div><strong>Anjali Nair</strong> ★★★★★</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The personal coaching is top-notch. They focus on proper form and sustainability. Worth every penny."</p>
+                    <div><strong>Rahul Krishnan</strong> ★★★★★</div>
+                </div>
+            </div>
+
+            <!-- GLASSY CONTACT BAR -->
+            <div class="glassy-contact-bar">
+                <a href="tel:+919633271370" class="glassy-contact-item btn-call-highlight" style="padding: 12px 24px; border-radius: 40px;">
+                    <i class="fas fa-phone-alt" style="color: #fff;"></i> +91 96332 71370
+                </a>
+                <a href="mailto:hevinbyju1995@gmail.com" class="glassy-contact-item">
+                    <i class="fas fa-envelope"></i> hevinbyju1995@gmail.com
+                </a>
+                <div class="glassy-contact-item">
+                    <i class="fas fa-user"></i> Owner: Hevin Biju
+                </div>
             </div>
         </div>
     </section>
@@ -1057,23 +1470,15 @@
     <!-- CONTACT -->
     <section id="contact">
         <div class="container">
-            <div class="section-title"><h2>Get in Touch</h2></div>
-            <div class="contact-grid">
-                <div class="contact-info fade-in">
-                    <h3>Contact Info</h3>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><a href="tel:+918078936890" style="color: inherit; text-decoration: none;">+91 80789 36890</a></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div>reubenbilon2004@gmail.com</div></div>
-                    <div><strong>Owner:</strong> George</div>
-                </div>
-                <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="tel" placeholder="Mobile Number" required>
-                        <textarea rows="3" placeholder="Your fitness goal..."></textarea>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
+            <div class="section-title"><h2>Send us a Message</h2></div>
+            <div class="contact-form" style="max-width: 800px; margin: 0 auto;">
+                <form id="contactForm" action="mailto:hevinbyju1995@gmail.com" method="post" enctype="text/plain">
+                    <input type="text" placeholder="Full Name" name="name" required>
+                    <input type="email" placeholder="Email Address" name="email" required>
+                    <input type="tel" placeholder="Mobile Number" name="phone" required>
+                    <textarea rows="3" placeholder="Your fitness goal..." name="goal"></textarea>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -1084,11 +1489,33 @@
                 <a href="https://www.facebook.com/magicfitnessgroup/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://instagram.com/magic_fitness_group" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="copyright"><p>© 2025 Magic Fitness Group — 3 Locations in Thrissur | Owned by George</p></div>
+            <div class="copyright">
+                <p>© 2018 - 2026 Magic Fitness Group — 3 Locations in Thrissur | Owned by Hevin Biju</p>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/918078936890" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/919633271370" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- CONTACT CHOICE MODAL -->
+    <div id="contactChoiceModal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="close-modal" id="closeContactModal" style="position: absolute; top: 10px; right: 10px; font-size: 30px;">&times;</span>
+            <h2>Join Magic Fitness</h2>
+            <p style="margin-top: 10px; color: #ccc;">How would you like to contact us?</p>
+            <div class="contact-modal-btns">
+                <a href="tel:+919633271370" class="btn btn-call-highlight">
+                    <i class="fas fa-phone-alt"></i> Call Us Now
+                </a>
+                <a href="mailto:hevinbyju1995@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Send an Email
+                </a>
+                <a href="https://wa.me/919633271370" target="_blank" class="btn" style="background: #25D366; border: none;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- IMAGE MODAL -->
     <div id="imageModal" class="image-modal">
@@ -1097,6 +1524,30 @@
     </div>
 
     <script>
+        // Contact Modal logic
+        const contactChoiceModal = document.getElementById('contactChoiceModal');
+        const openContactModalBtns = document.querySelectorAll('.open-contact-modal');
+        const closeContactModal = document.getElementById('closeContactModal');
+
+        openContactModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                contactChoiceModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeContactModal.addEventListener('click', () => {
+            contactChoiceModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === contactChoiceModal) {
+                contactChoiceModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Image Modal logic
         const imageModal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
@@ -1105,7 +1556,7 @@
         function openImageModal(src) {
             modalImg.src = src;
             imageModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         closeModal.addEventListener('click', () => {
@@ -1120,44 +1571,46 @@
             }
         });
 
-        // Mobile menu logic
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const menuIcon = menuBtn.querySelector('i');
-
-        function toggleMenu() {
-            mobileNav.classList.toggle('active');
-            const isActive = mobileNav.classList.contains('active');
-            
-            // Change icon between bars and times (X)
-            menuIcon.classList.toggle('fa-bars', !isActive);
-            menuIcon.classList.toggle('fa-times', isActive);
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = isActive ? 'hidden' : 'auto';
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.mobile-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNav.classList.remove('active');
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
-                document.body.style.overflow = 'auto';
+        // Accordion logic
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+                const icon = header.querySelector('i');
+                
+                // Close all other items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    const otherIcon = i.querySelector('.accordion-header i');
+                    if (otherIcon) {
+                        otherIcon.classList.add('fa-chevron-down');
+                        otherIcon.classList.remove('fa-chevron-up');
+                    }
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                }
             });
         });
 
-        // Pricing tabs
+        // Tabs logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
         const weightPlan = document.getElementById('weightPlan');
         const cardioPlan = document.getElementById('cardioPlan');
-        const tabBtns = document.querySelectorAll('.tab-btn');
+
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 tabBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                if (btn.dataset.plan === 'weight') {
+                const plan = btn.getAttribute('data-plan');
+                if (plan === 'weight') {
                     weightPlan.style.display = 'block';
                     cardioPlan.style.display = 'none';
                 } else {
@@ -1167,15 +1620,27 @@
             });
         });
 
-        // Accordion
-        const accordionItems = document.querySelectorAll('.accordion-item');
-        accordionItems.forEach(item => {
-            const header = item.querySelector('.accordion-header');
-            header.addEventListener('click', () => {
-                item.classList.toggle('active');
-                const icon = header.querySelector('i');
-                icon.classList.toggle('fa-chevron-down');
-                icon.classList.toggle('fa-chevron-up');
+        // Mobile menu logic
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const menuIcon = menuBtn.querySelector('i');
+
+        function toggleMenu() {
+            mobileNav.classList.toggle('active');
+            const isActive = mobileNav.classList.contains('active');
+            menuIcon.classList.toggle('fa-bars', !isActive);
+            menuIcon.classList.toggle('fa-times', isActive);
+            document.body.style.overflow = isActive ? 'hidden' : 'auto';
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                document.body.style.overflow = 'auto';
             });
         });
 
@@ -1188,14 +1653,16 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.1 });
         faders.forEach(el => observer.observe(el));
 
         // Contact form
         document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thanks! We’ll reach out soon.');
-            e.target.reset();
+            // Let the mailto action happen, but show a confirmation
+            setTimeout(() => {
+                alert('Opening your email client to send the message...');
+                e.target.reset();
+            }, 500);
         });
     </script>
 </body>
